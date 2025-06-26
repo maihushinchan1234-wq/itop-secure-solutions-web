@@ -9,19 +9,19 @@ export const BlogsSection = () => {
   const blogs = [
     {
       title: "How to Choose a Printer for Your Office",
-      excerpt: "A comprehensive guide to selecting the right printer based on your business needs, volume, and budget.",
+      excerpt: "A comprehensive guide to selecting the right printer based on your business needs, volume, and budget considerations.",
       date: "December 15, 2024",
-      slug: "choose-office-printer"
+      slug: "choose-printer-office"
     },
     {
       title: "Smart Locks vs Traditional Locks",
-      excerpt: "Compare the benefits, security features, and costs of smart locks versus traditional lock systems.",
+      excerpt: "Compare the benefits, security features, and costs of smart locks versus traditional lock systems for your property.",
       date: "December 10, 2024",
       slug: "smart-vs-traditional-locks"
     },
     {
       title: "Top 5 Fire Alarm Systems for Small Businesses",
-      excerpt: "Essential fire safety systems every small business should consider for compliance and protection.",
+      excerpt: "Essential fire safety systems every small business should consider for compliance and protection of assets.",
       date: "December 5, 2024",
       slug: "fire-alarm-systems-business"
     },
@@ -39,11 +39,19 @@ export const BlogsSection = () => {
     },
     {
       title: "5 Signs Your Printer Needs Repair",
-      excerpt: "Common warning signs that indicate your printer requires professional maintenance or repair.",
+      excerpt: "Common warning signs that indicate your printer requires professional maintenance or repair services.",
       date: "November 20, 2024",
       slug: "printer-repair-signs"
     }
   ];
+
+  const handleBlogClick = (slug: string) => {
+    navigate(`/blog/${slug}`);
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
+  };
 
   return (
     <section id="blogs" className="py-16 bg-white">
@@ -61,8 +69,7 @@ export const BlogsSection = () => {
           {blogs.map((blog, index) => (
             <div 
               key={index}
-              className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-              onClick={() => navigate(`/blog/${blog.slug}`)}
+              className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <div className="p-6">
                 <div className="flex items-center text-sm text-gray-500 mb-3">
@@ -75,10 +82,13 @@ export const BlogsSection = () => {
                 <p className="text-gray-600 mb-4">
                   {blog.excerpt}
                 </p>
-                <div className="flex items-center text-blue-600 font-medium">
+                <button
+                  onClick={() => handleBlogClick(blog.slug)}
+                  className="flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors"
+                >
                   <span className="text-sm">Read More</span>
                   <ArrowRight className="h-4 w-4 ml-1" />
-                </div>
+                </button>
               </div>
             </div>
           ))}
