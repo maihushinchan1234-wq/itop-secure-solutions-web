@@ -1,58 +1,63 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Star, Quote } from 'lucide-react';
 
+// This would typically come from a database or API
+interface Testimonial {
+  id: string;
+  name: string;
+  location: string;
+  service: string;
+  rating: number;
+  comment: string;
+  avatar: string;
+  date: string;
+  verified: boolean;
+}
+
 export const FeedbackTestimonials = () => {
-  const testimonials = [
-    {
-      name: "Ravi Sharma",
-      location: "New Delhi",
-      service: "Printer Repair",
-      rating: 5,
-      comment: "Had an issue with my Canon printer — they fixed it the same day! Courteous staff and reasonable prices. The technician was very professional and explained everything clearly.",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
-    },
-    {
-      name: "Sonal Verma",
-      location: "Gurgaon",
-      service: "Smart Lock Installation",
-      rating: 5,
-      comment: "Replaced my old lock with a smart one from Yale. The technician helped me set it up on my phone too! Great service and very patient with all my questions.",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=100&h=100&fit=crop&crop=face"
-    },
-    {
-      name: "Amit Patel",
-      location: "Noida",
-      service: "CCTV Installation",
-      rating: 5,
-      comment: "Excellent CCTV installation service. They installed 6 cameras in our office and the quality is amazing. Mobile app works perfectly and the team was very professional.",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
-    },
-    {
-      name: "Priya Singh",
-      location: "Faridabad",
-      service: "Fire Alarm System",
-      rating: 5,
-      comment: "iTOP Services installed our complete fire alarm system. Very thorough work and they explained all the safety features. Feel much safer now in our office building.",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
-    },
-    {
-      name: "Rajesh Kumar",
-      location: "Delhi",
-      service: "Printer AMC",
-      rating: 4,
-      comment: "Great AMC service for our office printers. Regular maintenance keeps everything running smoothly. Quick response whenever we have any issues.",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face"
-    },
-    {
-      name: "Neha Gupta",
-      location: "Ghaziabad",
-      service: "Door Lock Repair",
-      rating: 5,
-      comment: "Emergency lock repair service was fantastic. They came within 2 hours and fixed our smart lock issue. Very reliable and trustworthy service.",
-      avatar: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=100&h=100&fit=crop&crop=face"
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+
+  // Load testimonials from localStorage (simulating a backend)
+  useEffect(() => {
+    const storedTestimonials = localStorage.getItem('itop-testimonials');
+    if (storedTestimonials) {
+      setTestimonials(JSON.parse(storedTestimonials));
     }
-  ];
+  }, []);
+
+  if (testimonials.length === 0) {
+    return (
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Customer Testimonials
+            </h2>
+            <p className="text-lg text-gray-600">
+              Hear what our satisfied customers have to say about our services
+            </p>
+          </div>
+
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="bg-blue-50 rounded-lg p-12">
+              <Quote className="h-16 w-16 text-blue-600 opacity-20 mx-auto mb-6" />
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                No Reviews Yet
+              </h3>
+              <p className="text-lg text-gray-600 mb-6">
+                Be the first to share your experience with iTOP Services!
+              </p>
+              <p className="text-gray-500">
+                We value your feedback and use it to improve our services. 
+                Your review will help other customers make informed decisions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-16 bg-white">
@@ -64,22 +69,28 @@ export const FeedbackTestimonials = () => {
           <p className="text-lg text-gray-600">
             Hear what our satisfied customers have to say about our services
           </p>
+          <div className="mt-4">
+            <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+              {testimonials.length} Verified Reviews
+            </span>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gray-50 rounded-lg p-6 relative hover:shadow-lg transition-shadow">
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.id} className="bg-gray-50 rounded-lg p-6 relative hover:shadow-lg transition-shadow">
               <Quote className="h-8 w-8 text-blue-600 opacity-20 absolute top-4 right-4" />
               
               <div className="flex items-center mb-4">
-                <img 
-                  src={testimonial.avatar} 
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full mr-4"
-                />
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  {testimonial.name.charAt(0).toUpperCase()}
+                </div>
                 <div>
                   <h4 className="font-semibold text-gray-800">{testimonial.name}</h4>
                   <p className="text-sm text-gray-600">{testimonial.location}</p>
+                  {testimonial.verified && (
+                    <span className="text-xs text-green-600 font-medium">✓ Verified Customer</span>
+                  )}
                 </div>
               </div>
 
@@ -97,11 +108,21 @@ export const FeedbackTestimonials = () => {
                 {testimonial.service}
               </div>
 
-              <p className="text-gray-700 text-sm">
+              <p className="text-gray-700 text-sm mb-3">
                 "{testimonial.comment}"
+              </p>
+
+              <p className="text-xs text-gray-500">
+                {new Date(testimonial.date).toLocaleDateString()}
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <p className="text-gray-600">
+            Have you used our services? We'd love to hear from you!
+          </p>
         </div>
       </div>
     </section>

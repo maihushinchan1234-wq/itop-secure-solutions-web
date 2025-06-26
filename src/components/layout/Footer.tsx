@@ -1,13 +1,33 @@
 
 import React from 'react';
 import { Phone, Mail, MapPin, Facebook, Instagram, MessageSquare } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      // Navigate to home page first, then scroll
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // Already on home page, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+  };
+
+  const handleServiceNavigation = (path: string) => {
+    navigate(path);
   };
 
   return (
@@ -38,7 +58,7 @@ export const Footer = () => {
               <li>
                 <button 
                   onClick={() => scrollToSection('about')}
-                  className="text-gray-300 hover:text-white"
+                  className="text-gray-300 hover:text-white text-left"
                 >
                   About
                 </button>
@@ -46,7 +66,7 @@ export const Footer = () => {
               <li>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-gray-300 hover:text-white"
+                  className="text-gray-300 hover:text-white text-left"
                 >
                   Services
                 </button>
@@ -54,7 +74,7 @@ export const Footer = () => {
               <li>
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="text-gray-300 hover:text-white"
+                  className="text-gray-300 hover:text-white text-left"
                 >
                   Contact
                 </button>
@@ -62,9 +82,17 @@ export const Footer = () => {
               <li>
                 <button 
                   onClick={() => scrollToSection('blogs')}
-                  className="text-gray-300 hover:text-white"
+                  className="text-gray-300 hover:text-white text-left"
                 >
                   Blogs
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => navigate('/feedback')}
+                  className="text-gray-300 hover:text-white text-left"
+                >
+                  Feedback
                 </button>
               </li>
             </ul>
@@ -73,10 +101,38 @@ export const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
-              <li><a href="/printers" className="text-gray-300 hover:text-white">Printers</a></li>
-              <li><a href="/cctv" className="text-gray-300 hover:text-white">CCTV Systems</a></li>
-              <li><a href="/door-locks" className="text-gray-300 hover:text-white">Door Locks</a></li>
-              <li><a href="/fire-alarms" className="text-gray-300 hover:text-white">Fire Alarms</a></li>
+              <li>
+                <button 
+                  onClick={() => handleServiceNavigation('/printers')}
+                  className="text-gray-300 hover:text-white text-left"
+                >
+                  Printers
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleServiceNavigation('/cctv')}
+                  className="text-gray-300 hover:text-white text-left"
+                >
+                  CCTV Systems
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleServiceNavigation('/door-locks')}
+                  className="text-gray-300 hover:text-white text-left"
+                >
+                  Door Locks
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleServiceNavigation('/fire-alarms')}
+                  className="text-gray-300 hover:text-white text-left"
+                >
+                  Fire Alarms
+                </button>
+              </li>
             </ul>
           </div>
           

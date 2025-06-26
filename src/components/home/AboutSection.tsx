@@ -1,88 +1,111 @@
 
 import React from 'react';
-import { CheckCircle, Award, Users, Clock } from 'lucide-react';
+import { CheckCircle, Users, Clock, Award } from 'lucide-react';
 
 export const AboutSection = () => {
+  const achievements = [
+    {
+      icon: Users,
+      number: "500+",
+      label: "Happy Customers",
+      description: "Homes and businesses served across Delhi NCR"
+    },
+    {
+      icon: Clock,
+      number: "16+",
+      label: "Years Experience",
+      description: "Established in 2008, serving the community"
+    },
+    {
+      icon: Award,
+      number: "50+",
+      label: "Brands Supported",
+      description: "Wide range of technology brands and models"
+    },
+    {
+      icon: CheckCircle,
+      number: "24/7",
+      label: "Support Available",
+      description: "Emergency services and customer support"
+    }
+  ];
+
+  const features = [
+    "Certified and experienced technicians",
+    "Same-day service for most repairs",
+    "Genuine parts and quality materials",
+    "Comprehensive warranty on all services",
+    "Transparent pricing with no hidden costs",
+    "Free consultation and site surveys"
+  ];
+
   return (
-    <section id="about" className="py-16 bg-gray-50">
+    <section id="about" className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        {/* Main About Content */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
             About iTOP Services
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Welcome to iTOP Services, your go-to specialist for reliable hardware and security solutions. 
-            For over 17 years (since 2008), we've proudly supported homes, offices, and institutions across Delhi NCR.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">Our Mission</h3>
-            <p className="text-gray-600 mb-6">
-              To equip every space with smart, efficient, and secure technology—empowering clients 
-              with peace of mind and operational excellence.
+          <div className="max-w-4xl mx-auto">
+            <p className="text-lg text-gray-600 mb-6">
+              Since 2008, iTOP Services has been Delhi NCR's trusted partner for comprehensive 
+              technology solutions. What started as a small printer repair service has grown into 
+              a full-service technology and security company, serving hundreds of satisfied customers 
+              across residential and commercial sectors.
             </p>
-            <p className="text-gray-600">
-              We're more than just a supply store — we're your dedicated partner in keeping your 
-              environment safe, connected, and productive.
+            <p className="text-lg text-gray-600 mb-8">
+              We specialize in printer services, CCTV surveillance systems, smart door locks, 
+              and fire alarm installations. Our team of certified technicians brings years of 
+              experience and expertise to every project, ensuring reliable solutions that keep 
+              your technology running smoothly and your property secure.
             </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <img 
-              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=300&h=200&fit=crop" 
-              alt="Office Technology Setup" 
-              className="rounded-lg shadow-md"
-            />
-            <img 
-              src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=300&h=200&fit=crop" 
-              alt="Security System Installation" 
-              className="rounded-lg shadow-md"
-            />
-            <img 
-              src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=300&h=200&fit=crop" 
-              alt="Printer Service" 
-              className="rounded-lg shadow-md"
-            />
-            <img 
-              src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=300&h=200&fit=crop" 
-              alt="Smart Lock Installation" 
-              className="rounded-lg shadow-md"
-            />
           </div>
         </div>
 
-        <div>
-          <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">Why Choose Us</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
+        {/* Achievement Stats */}
+        <div className="grid md:grid-cols-4 gap-8 mb-16">
+          {achievements.map((achievement, index) => (
+            <div key={index} className="text-center">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="h-8 w-8 text-blue-600" />
+                <achievement.icon className="h-8 w-8 text-blue-600" />
               </div>
-              <h4 className="font-semibold text-gray-800 mb-2">Expertise & Experience</h4>
-              <p className="text-gray-600 text-sm">Nearly two decades of trusted service in Delhi NCR</p>
+              <div className="text-3xl font-bold text-gray-800 mb-2">{achievement.number}</div>
+              <div className="text-lg font-semibold text-gray-700 mb-2">{achievement.label}</div>
+              <p className="text-sm text-gray-600">{achievement.description}</p>
             </div>
-            <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="h-8 w-8 text-blue-600" />
+          ))}
+        </div>
+
+        {/* Why Choose Us */}
+        <div className="bg-gray-50 rounded-lg p-8">
+          <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+            Why Choose iTOP Services?
+          </h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            {features.map((feature, index) => (
+              <div key={index} className="flex items-center">
+                <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                <span className="text-gray-700">{feature}</span>
               </div>
-              <h4 className="font-semibold text-gray-800 mb-2">Quality Product Range</h4>
-              <p className="text-gray-600 text-sm">Only genuine, brand-backed hardware and components</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-blue-600" />
-              </div>
-              <h4 className="font-semibold text-gray-800 mb-2">End-to-End Care</h4>
-              <p className="text-gray-600 text-sm">From consultation to installation and after-sales support</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="h-8 w-8 text-blue-600" />
-              </div>
-              <h4 className="font-semibold text-gray-800 mb-2">Customer-First Approach</h4>
-              <p className="text-gray-600 text-sm">Honest advice, tailored solutions, attention to detail</p>
-            </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Our Commitment */}
+        <div className="mt-16 text-center">
+          <h3 className="text-2xl font-bold text-gray-800 mb-6">Our Commitment</h3>
+          <div className="max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 mb-6">
+              At iTOP Services, we understand that technology is essential to your daily life and business operations. 
+              That's why we're committed to providing fast, reliable, and cost-effective solutions that minimize 
+              downtime and maximize your peace of mind.
+            </p>
+            <p className="text-lg text-gray-600">
+              Whether you need emergency printer repair, want to upgrade to a smart security system, or require 
+              regular maintenance for your office equipment, we're here to help with professional service and 
+              genuine care for our customers' satisfaction.
+            </p>
           </div>
         </div>
       </div>

@@ -26,7 +26,9 @@ import {
   Settings,
   Wrench,
   RefreshCw,
-  Headphones
+  Headphones,
+  Cog,
+  MessageSquare
 } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
@@ -123,7 +125,7 @@ export const Sidebar = () => {
                               <div className="text-xs text-gray-600 px-2 py-1">Canon</div>
                               <div className="text-xs text-gray-600 px-2 py-1">Brother</div>
                               <div className="text-xs text-gray-600 px-2 py-1">Samsung</div>
-                              <div className="text-xs text-gray-600 px-2 py-1">Others</div>
+                              <div className="text-xs text-gray-600 px-2 py-1">Others (Xerox, Ricoh)</div>
                             </div>
                           </CollapsibleContent>
                         </SidebarMenuSubItem>
@@ -209,7 +211,7 @@ export const Sidebar = () => {
                       </SidebarMenuSubItem>
                       <SidebarMenuSubItem>
                         <SidebarMenuSubButton>
-                          <span>Firmware Updates</span>
+                          <span>Firmware/Software Updates</span>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                       <SidebarMenuSubItem>
@@ -227,12 +229,78 @@ export const Sidebar = () => {
                 </SidebarMenuItem>
               </Collapsible>
 
-              <SidebarMenuItem>
-                <SidebarMenuButton onClick={() => handleNavigation('/feedback')}>
-                  <Star className="h-4 w-4" />
-                  <span>Feedback & Ratings</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+              <Collapsible open={openSections.includes('common')} onOpenChange={() => toggleSection('common')}>
+                <SidebarMenuItem>
+                  <CollapsibleTrigger asChild>
+                    <SidebarMenuButton>
+                      <Cog className="h-4 w-4" />
+                      <span>Common Services</span>
+                      <ChevronRight className={`h-4 w-4 ml-auto transition-transform ${openSections.includes('common') ? 'rotate-90' : ''}`} />
+                    </SidebarMenuButton>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <SidebarMenuSub>
+                      <SidebarMenuSubItem>
+                        <SidebarMenuSubButton>
+                          <span>System Configuration & Setup</span>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                      <SidebarMenuSubItem>
+                        <SidebarMenuSubButton>
+                          <span>Firmware Updates</span>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                      <SidebarMenuSubItem>
+                        <SidebarMenuSubButton>
+                          <span>Device Health Checks</span>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                      <SidebarMenuSubItem>
+                        <SidebarMenuSubButton>
+                          <span>Software/App Integration</span>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                      <SidebarMenuSubItem>
+                        <SidebarMenuSubButton>
+                          <span>Remote Troubleshooting</span>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                      <SidebarMenuSubItem>
+                        <SidebarMenuSubButton>
+                          <span>Staff/User Training & Demos</span>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                    </SidebarMenuSub>
+                  </CollapsibleContent>
+                </SidebarMenuItem>
+              </Collapsible>
+
+              <Collapsible open={openSections.includes('feedback')} onOpenChange={() => toggleSection('feedback')}>
+                <SidebarMenuItem>
+                  <CollapsibleTrigger asChild>
+                    <SidebarMenuButton>
+                      <Star className="h-4 w-4" />
+                      <span>Feedback & Ratings</span>
+                      <ChevronRight className={`h-4 w-4 ml-auto transition-transform ${openSections.includes('feedback') ? 'rotate-90' : ''}`} />
+                    </SidebarMenuButton>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <SidebarMenuSub>
+                      <SidebarMenuSubItem>
+                        <SidebarMenuSubButton onClick={() => handleNavigation('/feedback')}>
+                          <span>View Customer Reviews</span>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                      <SidebarMenuSubItem>
+                        <SidebarMenuSubButton onClick={() => handleNavigation('/feedback')}>
+                          <MessageSquare className="h-4 w-4" />
+                          <span>Submit Your Feedback</span>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                    </SidebarMenuSub>
+                  </CollapsibleContent>
+                </SidebarMenuItem>
+              </Collapsible>
 
               <SidebarMenuItem>
                 <SidebarMenuButton onClick={openMap}>

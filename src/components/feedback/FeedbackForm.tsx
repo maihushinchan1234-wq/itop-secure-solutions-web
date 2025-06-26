@@ -7,6 +7,7 @@ export const FeedbackForm = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
+    location: '',
     service: '',
     rating: 0,
     feedback: '',
@@ -22,11 +23,15 @@ export const FeedbackForm = () => {
     'Fire Alarm Installation',
     'AMC Service',
     'Emergency Repair',
+    'Toner Refilling',
+    'Ink Refilling',
+    'System Configuration',
     'Other'
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
     if (formData.rating === 0) {
       toast({
         title: "Please select a rating",
@@ -35,23 +40,57 @@ export const FeedbackForm = () => {
       });
       return;
     }
+
+    if (!formData.name || !formData.service || !formData.feedback || !formData.location) {
+      toast({
+        title: "Please fill all required fields",
+        description: "Name, location, service, and feedback are required.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Create testimonial object
+    const testimonial = {
+      id: Date.now().toString(),
+      name: formData.name,
+      location: formData.location,
+      service: formData.service,
+      rating: formData.rating,
+      comment: formData.feedback,
+      avatar: '',
+      date: new Date().toISOString(),
+      verified: true
+    };
+
+    // Save to localStorage (in a real app, this would be sent to a backend)
+    const existingTestimonials = JSON.parse(localStorage.getItem('itop-testimonials') || '[]');
+    existingTestimonials.push(testimonial);
+    localStorage.setItem('itop-testimonials', JSON.stringify(existingTestimonials));
     
     toast({
       title: "Thank you for your feedback!",
-      description: "Your review will appear shortly after verification.",
+      description: "Your review has been submitted and will appear on the website shortly.",
     });
     
+    // Reset form
     setFormData({
       name: '',
+      location: '',
       service: '',
       rating: 0,
       feedback: '',
       photo: null
     });
+
+    // Reload testimonials section
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
   };
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section id="submit" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
@@ -59,24 +98,40 @@ export const FeedbackForm = () => {
               Share Your Experience
             </h2>
             <p className="text-lg text-gray-600">
-              Help us improve our services by sharing your feedback
+              Help us improve our services and help others by sharing your honest feedback
             </p>
           </div>
 
           <div className="bg-white rounded-lg shadow-lg p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Your Name *
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Enter your full name"
-                />
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Your Name *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Your Location *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.location}
+                    onChange={(e) => setFormData({...formData, location: e.target.value})}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="e.g., New Delhi, Gurgaon"
+                  />
+                </div>
               </div>
 
               <div>
@@ -106,7 +161,7 @@ export const FeedbackForm = () => {
                       key={star}
                       type="button"
                       onClick={() => setFormData({...formData, rating: star})}
-                      className="p-1"
+                      className="p-1 transition-colors"
                     >
                       <Star 
                         className={`h-8 w-8 ${star <= formData.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'} hover:text-yellow-400 transition-colors`} 
@@ -114,37 +169,53 @@ export const FeedbackForm = () => {
                     </button>
                   ))}
                 </div>
+                <p className="text-sm text-gray-500 mt-1">Click to rate your experience</p>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Your Feedback *
+                  Your Detailed Feedback *
                 </label>
                 <textarea
                   required
-                  rows={4}
+                  rows={5}
                   value={formData.feedback}
                   onChange={(e) => setFormData({...formData, feedback: e.target.value})}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Tell us about your experience with our service..."
+                  placeholder="Please share your detailed experience with our service. What did you like? How can we improve? Your honest feedback helps us serve you better."
                 ></textarea>
+                <p className="text-sm text-gray-500 mt-1">Minimum 50 characters recommended</p>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Upload Photo (Optional)
                 </label>
-                <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 transition-colors">
                   <Upload className="h-8 w-8 text-gray-400 mx-auto mb-2" />
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 text-sm mb-2">
                     Upload a photo of our work or your experience
+                  </p>
+                  <p className="text-xs text-gray-500 mb-3">
+                    Supported formats: JPG, PNG, GIF (max 5MB)
                   </p>
                   <input
                     type="file"
                     accept="image/*"
                     onChange={(e) => setFormData({...formData, photo: e.target.files?.[0] || null})}
-                    className="mt-2"
+                    className="block mx-auto"
                   />
+                </div>
+              </div>
+
+              <div className="bg-blue-50 border-l-4 border-blue-400 p-4">
+                <div className="flex">
+                  <div className="ml-3">
+                    <p className="text-sm text-blue-700">
+                      <strong>Note:</strong> Your review will be published on our website to help other customers. 
+                      We may contact you to verify your feedback. All reviews are subject to our content guidelines.
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -152,7 +223,7 @@ export const FeedbackForm = () => {
                 type="submit"
                 className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
-                Submit Feedback
+                Submit Your Feedback
               </button>
             </form>
           </div>
@@ -163,10 +234,10 @@ export const FeedbackForm = () => {
                 Write a Google Review
               </h3>
               <p className="text-gray-600 mb-4">
-                Help others find us by leaving a review on Google
+                Help others find us by leaving a review on Google Business
               </p>
               <button 
-                onClick={() => window.open('#', '_blank')}
+                onClick={() => window.open('https://g.page/r/YOUR_GOOGLE_BUSINESS_ID/review', '_blank')}
                 className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Write Google Review
