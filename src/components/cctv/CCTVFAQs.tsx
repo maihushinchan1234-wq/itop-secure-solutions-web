@@ -6,39 +6,39 @@ export const CCTVFAQs = () => {
   const faqs = [
     {
       question: "Can I view CCTV footage on my mobile?",
-      answer: "Yes, with our IP camera systems, you can view live footage and recorded videos on your smartphone through dedicated mobile apps. We provide complete setup and training for mobile access."
+      answer: "Yes! Most modern CCTV systems come with mobile apps that allow you to view live footage and recorded videos from anywhere with an internet connection. We'll help you set up the app and train you on its features."
     },
     {
       question: "Is night vision available for outdoor cameras?",
-      answer: "Absolutely! Our outdoor cameras come with infrared night vision capabilities that can capture clear footage even in complete darkness up to 30-50 meters depending on the camera model."
+      answer: "Absolutely! We offer infrared (IR) cameras with excellent night vision capabilities. These cameras can capture clear footage even in complete darkness, with ranges from 20 to 100+ meters depending on the model."
     },
     {
       question: "Can I integrate AI or face recognition with existing setup?",
-      answer: "Yes, we can upgrade your existing CCTV system with AI-powered cameras that support face recognition, motion detection, and smart analytics. This depends on your current system compatibility."
+      answer: "Yes, in many cases we can upgrade your existing system with AI-powered cameras or add facial recognition capabilities. Our technicians will assess your current setup and recommend the best upgrade path."
     },
     {
       question: "What's the typical range of a bullet camera?",
-      answer: "Bullet cameras typically have a range of 20-100 meters depending on the lens size and resolution. We help you choose the right camera based on your specific coverage requirements."
+      answer: "Bullet cameras typically have excellent zoom capabilities and can monitor areas from 50 to 200+ meters depending on the lens. They're perfect for long corridors, parking lots, and perimeter monitoring."
     },
     {
       question: "Will my CCTV system work during a power outage?",
-      answer: "With our UPS backup solutions, your CCTV system can continue operating for 2-8 hours during power outages, depending on the backup capacity you choose."
+      answer: "Yes, with proper backup solutions! We can install UPS (Uninterruptible Power Supply) systems that keep your cameras running for several hours during power cuts. Some wireless cameras also have built-in battery backup."
     },
     {
       question: "How often should I get my system checked?",
-      answer: "We recommend quarterly maintenance checks to ensure optimal performance. Our AMC plans include regular cleaning, software updates, and hardware inspections."
+      answer: "We recommend quarterly maintenance checks to clean lenses, check connections, and ensure optimal performance. However, modern IP cameras are quite reliable and may only need bi-annual professional servicing."
     }
   ];
 
   return (
-    <section id="faqs" className="py-16 bg-white">
+    <section id="faqs" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-gray-600">
-            Common questions about CCTV systems and installation
+            Common questions about CCTV installation and monitoring
           </p>
         </div>
 

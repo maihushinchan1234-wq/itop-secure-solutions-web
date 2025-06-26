@@ -5,23 +5,33 @@ export const CCTVTypes = () => {
   const cameraTypes = [
     {
       title: "Dome Cameras",
-      description: "360° coverage with vandal-resistant design, perfect for indoor surveillance",
+      description: "360° view, vandal-resistant design perfect for indoor and outdoor monitoring",
       image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=300&fit=crop"
     },
     {
       title: "Bullet Cameras",
-      description: "Long-range outdoor monitoring with weatherproof housing",
+      description: "Long range, weatherproof cameras ideal for perimeter monitoring and outdoor areas",
       image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=300&fit=crop"
     },
     {
       title: "PTZ Cameras",
-      description: "Pan, tilt, and zoom capabilities for comprehensive area coverage",
+      description: "Pan, tilt, zoom functionality for active monitoring and tracking of subjects",
       image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400&h=300&fit=crop"
     },
     {
       title: "IP Cameras",
-      description: "High-definition network cameras with smart analytics and mobile access",
+      description: "HD quality, smart analytics, and network connectivity for modern surveillance",
       image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop"
+    },
+    {
+      title: "Thermal Cameras",
+      description: "Night vision and heat sensing technology for 24/7 monitoring capabilities",
+      image: "https://images.unsplash.com/photo-1573883430120-6e6d5dc38cd5?w=400&h=300&fit=crop"
+    },
+    {
+      title: "Face Recognition Cameras",
+      description: "AI-powered, real-time alerts for advanced security and access control",
+      image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=300&fit=crop"
     }
   ];
 
@@ -33,7 +43,7 @@ export const CCTVTypes = () => {
             Types of CCTV Systems We Offer
           </h2>
           <p className="text-lg text-gray-600">
-            Choose the right camera type for your security needs
+            Choose the perfect camera for your security needs
           </p>
         </div>
 

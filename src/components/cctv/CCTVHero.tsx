@@ -16,21 +16,21 @@ export const CCTVHero = () => {
           From Indoor Monitoring to Smart AI-Powered Security – Keep an Eye with Confidence
         </p>
         <p className="text-lg mb-8 max-w-3xl mx-auto">
-          Professional CCTV installation and monitoring solutions for homes, offices, and commercial spaces. 
-          Complete security systems with 24/7 monitoring, cloud storage, and mobile access.
+          Professional CCTV installation and surveillance solutions for homes, businesses, and institutions. 
+          From basic monitoring to advanced AI-powered security systems.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <button 
-            onClick={scrollToContact}
+            onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
           >
-            Get Free Quote
+            Explore Camera Types
           </button>
           <button 
-            onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('smart-features')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
           >
-            Explore Services
+            Smart Features
           </button>
         </div>
       </div>

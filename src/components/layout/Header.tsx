@@ -39,8 +39,8 @@ export const Header = () => {
         return [
           { label: 'Services', action: () => scrollToPageSection('services') },
           { label: 'Types', action: () => scrollToPageSection('cctv-types') },
-          { label: 'Brands', action: () => scrollToPageSection('brands') },
-          { label: 'FAQs', action: () => scrollToPageSection('faqs') }
+          { label: 'FAQs', action: () => scrollToPageSection('faqs') },
+          { label: 'Contact', action: () => scrollToSection('contact') }
         ];
       case '/door-locks':
         return [

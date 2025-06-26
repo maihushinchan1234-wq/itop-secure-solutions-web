@@ -7,50 +7,50 @@ export const CCTVIndustries = () => {
     {
       icon: Home,
       title: "Residential",
-      description: "Home security systems for villas, apartments, and residential complexes"
+      description: "Home security cameras for entrances, gardens, and interior monitoring"
     },
     {
       icon: Building,
       title: "Commercial",
-      description: "Office buildings, retail stores, and business establishments"
+      description: "Office surveillance, parking lots, and business premise security"
     },
     {
       icon: School,
       title: "Educational",
-      description: "Schools, colleges, and educational institutions"
+      description: "School and college campus security with comprehensive coverage"
     },
     {
       icon: Hotel,
       title: "Hospitality",
-      description: "Hotels, restaurants, and hospitality venues"
+      description: "Hotel lobby, corridor, and facility monitoring systems"
     },
     {
       icon: Factory,
       title: "Industrial",
-      description: "Manufacturing plants, warehouses, and industrial facilities"
+      description: "Factory floor monitoring, perimeter security, and safety compliance"
     },
     {
       icon: ShoppingBag,
       title: "Retail",
-      description: "Shopping malls, stores, and retail chains"
+      description: "Store surveillance, theft prevention, and customer behavior analysis"
     }
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Industries We Serve
+            Installation Suggestions by Property Type
           </h2>
           <p className="text-lg text-gray-600">
-            Customized CCTV solutions for every sector
+            Customized surveillance solutions for every sector
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {industries.map((industry, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
+            <div key={index} className="bg-gray-50 rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <industry.icon className="h-8 w-8 text-blue-600" />
               </div>

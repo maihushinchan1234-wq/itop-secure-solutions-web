@@ -7,9 +7,11 @@ import { Footer } from "@/components/layout/Footer";
 import { CCTVHero } from "@/components/cctv/CCTVHero";
 import { CCTVServices } from "@/components/cctv/CCTVServices";
 import { CCTVTypes } from "@/components/cctv/CCTVTypes";
-import { CCTVBrands } from "@/components/cctv/CCTVBrands";
 import { CCTVIndustries } from "@/components/cctv/CCTVIndustries";
+import { SmartCCTVFeatures } from "@/components/cctv/SmartCCTVFeatures";
+import { CCTVBrands } from "@/components/cctv/CCTVBrands";
 import { CCTVFAQs } from "@/components/cctv/CCTVFAQs";
+import { MonitorProperty } from "@/components/cctv/MonitorProperty";
 
 const CCTVPage = () => {
   return (
@@ -22,9 +24,11 @@ const CCTVPage = () => {
             <CCTVHero />
             <CCTVServices />
             <CCTVTypes />
-            <CCTVBrands />
             <CCTVIndustries />
+            <SmartCCTVFeatures />
+            <CCTVBrands />
             <CCTVFAQs />
+            <MonitorProperty />
           </main>
           <Footer />
         </div>
