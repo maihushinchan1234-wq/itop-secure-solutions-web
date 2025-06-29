@@ -1,56 +1,40 @@
 
 import React from 'react';
+import { Calendar, User, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { Calendar, ArrowRight } from 'lucide-react';
 
 export const BlogsSection = () => {
   const navigate = useNavigate();
 
   const blogs = [
     {
-      title: "How to Choose a Printer for Your Office",
-      excerpt: "A comprehensive guide to selecting the right printer based on your business needs, volume, and budget considerations.",
-      date: "December 15, 2024",
-      slug: "choose-printer-office"
+      id: '1',
+      title: 'The Future of Home Security with Smart Door Locks',
+      excerpt: 'Explore the latest trends in smart door lock technology and how they are transforming home security.',
+      author: 'Alice Johnson',
+      date: '2024-01-20',
+      category: 'Door Locks'
     },
     {
-      title: "Smart Locks vs Traditional Locks",
-      excerpt: "Compare the benefits, security features, and costs of smart locks versus traditional lock systems for your property.",
-      date: "December 10, 2024",
-      slug: "smart-vs-traditional-locks"
+      id: '2',
+      title: 'Top 5 CCTV Cameras for Business Surveillance',
+      excerpt: 'A detailed review of the best CCTV cameras for enhancing business security and preventing theft.',
+      author: 'Bob Williams',
+      date: '2024-02-15',
+      category: 'CCTV'
     },
     {
-      title: "Top 5 Fire Alarm Systems for Small Businesses",
-      excerpt: "Essential fire safety systems every small business should consider for compliance and protection of assets.",
-      date: "December 5, 2024",
-      slug: "fire-alarm-systems-business"
+      id: '3',
+      title: 'Ensuring Fire Safety: A Guide to Modern Fire Alarms',
+      excerpt: 'Learn about the importance of modern fire alarms and how they can save lives and protect property.',
+      author: 'Charlie Brown',
+      date: '2024-03-10',
+      category: 'Fire Alarms'
     },
-    {
-      title: "CCTV Placement Tips for Home Security",
-      excerpt: "Strategic placement of cameras to maximize coverage and deterrent effect for residential properties.",
-      date: "November 30, 2024",
-      slug: "cctv-placement-home"
-    },
-    {
-      title: "Choosing the Right CCTV for Offices",
-      excerpt: "Office-specific security considerations and recommended camera types for business environments.",
-      date: "November 25, 2024",
-      slug: "cctv-office-guide"
-    },
-    {
-      title: "5 Signs Your Printer Needs Repair",
-      excerpt: "Common warning signs that indicate your printer requires professional maintenance or repair services.",
-      date: "November 20, 2024",
-      slug: "printer-repair-signs"
-    }
   ];
 
-  const handleBlogClick = (slug: string) => {
-    navigate(`/blog/${slug}`);
-    // Scroll to top after navigation
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 100);
+  const handleBlogClick = (blogId: string) => {
+    navigate(`/blog/${blogId}`);
   };
 
   return (
@@ -58,40 +42,61 @@ export const BlogsSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Blogs & FAQs
+            Latest Blogs & FAQs
           </h2>
           <p className="text-lg text-gray-600">
-            Expert insights and answers to your technology questions
+            Stay updated with the latest trends and insights in technology and security
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs.map((blog, index) => (
-            <div 
-              key={index}
-              className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+          {blogs.map((blog) => (
+            <article 
+              key={blog.id} 
+              className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
+              onClick={() => handleBlogClick(blog.id)}
             >
               <div className="p-6">
-                <div className="flex items-center text-sm text-gray-500 mb-3">
-                  <Calendar className="h-4 w-4 mr-2" />
-                  {blog.date}
+                <div className="flex items-center justify-between mb-3">
+                  <span className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">
+                    {blog.category}
+                  </span>
+                  <div className="flex items-center text-gray-500 text-sm">
+                    <Calendar className="h-4 w-4 mr-1" />
+                    {new Date(blog.date).toLocaleDateString()}
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                
+                <h3 className="text-xl font-semibold text-gray-800 mb-3 hover:text-blue-600 transition-colors">
                   {blog.title}
                 </h3>
+                
                 <p className="text-gray-600 mb-4">
                   {blog.excerpt}
                 </p>
-                <button
-                  onClick={() => handleBlogClick(blog.slug)}
-                  className="flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors"
-                >
-                  <span className="text-sm">Read More</span>
-                  <ArrowRight className="h-4 w-4 ml-1" />
-                </button>
+                
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center text-gray-500 text-sm">
+                    <User className="h-4 w-4 mr-1" />
+                    {blog.author}
+                  </div>
+                  <div className="flex items-center text-blue-600 hover:text-blue-700 transition-colors">
+                    <span className="text-sm font-medium mr-1">Read More</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
+                </div>
               </div>
-            </div>
+            </article>
           ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <button 
+            onClick={() => navigate('/feedback')}
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            View All Articles & FAQs
+          </button>
         </div>
       </div>
     </section>

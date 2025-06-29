@@ -23,6 +23,10 @@ export const Header = ({ isSidebarOpen, setIsSidebarOpen }: HeaderProps) => {
     window.location.href = '/#contact';
   };
 
+  const scrollToFireSafetyAudit = () => {
+    window.location.href = '/#contact';
+  };
+
   const getNavigationButtons = () => {
     switch (location.pathname) {
       case '/printers':
@@ -51,17 +55,17 @@ export const Header = ({ isSidebarOpen, setIsSidebarOpen }: HeaderProps) => {
             </Button>
             <Button 
               variant="ghost" 
+              onClick={() => scrollToSection('industries')}
+              className="text-gray-700 hover:text-blue-600"
+            >
+              Industries
+            </Button>
+            <Button 
+              variant="ghost" 
               onClick={() => scrollToSection('faqs')}
               className="text-gray-700 hover:text-blue-600"
             >
               FAQs
-            </Button>
-            <Button 
-              variant="ghost" 
-              onClick={scrollToContact}
-              className="text-gray-700 hover:text-blue-600"
-            >
-              Contact
             </Button>
           </>
         );
@@ -89,6 +93,20 @@ export const Header = ({ isSidebarOpen, setIsSidebarOpen }: HeaderProps) => {
               className="text-gray-700 hover:text-blue-600"
             >
               Brands
+            </Button>
+            <Button 
+              variant="ghost" 
+              onClick={() => scrollToSection('industries')}
+              className="text-gray-700 hover:text-blue-600"
+            >
+              Industries
+            </Button>
+            <Button 
+              variant="ghost" 
+              onClick={() => scrollToSection('features')}
+              className="text-gray-700 hover:text-blue-600"
+            >
+              Features
             </Button>
             <Button 
               variant="ghost" 
@@ -126,17 +144,17 @@ export const Header = ({ isSidebarOpen, setIsSidebarOpen }: HeaderProps) => {
             </Button>
             <Button 
               variant="ghost" 
+              onClick={() => scrollToSection('industries')}
+              className="text-gray-700 hover:text-blue-600"
+            >
+              Industries
+            </Button>
+            <Button 
+              variant="ghost" 
               onClick={() => scrollToSection('faqs')}
               className="text-gray-700 hover:text-blue-600"
             >
               FAQs
-            </Button>
-            <Button 
-              variant="ghost" 
-              onClick={scrollToContact}
-              className="text-gray-700 hover:text-blue-600"
-            >
-              Contact
             </Button>
           </>
         );
@@ -167,17 +185,24 @@ export const Header = ({ isSidebarOpen, setIsSidebarOpen }: HeaderProps) => {
             </Button>
             <Button 
               variant="ghost" 
+              onClick={() => scrollToSection('industries')}
+              className="text-gray-700 hover:text-blue-600"
+            >
+              Industries
+            </Button>
+            <Button 
+              variant="ghost" 
+              onClick={scrollToFireSafetyAudit}
+              className="text-gray-700 hover:text-blue-600"
+            >
+              Schedule Fire Safety Audit
+            </Button>
+            <Button 
+              variant="ghost" 
               onClick={() => scrollToSection('faqs')}
               className="text-gray-700 hover:text-blue-600"
             >
               FAQs
-            </Button>
-            <Button 
-              variant="ghost" 
-              onClick={scrollToContact}
-              className="text-gray-700 hover:text-blue-600"
-            >
-              Contact
             </Button>
           </>
         );
