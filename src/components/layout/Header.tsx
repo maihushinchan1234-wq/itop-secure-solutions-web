@@ -13,10 +13,13 @@ export const Header = ({ isSidebarOpen, setIsSidebarOpen }: HeaderProps) => {
   const location = useLocation();
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Add a small delay to ensure the DOM is ready
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
   };
 
   const scrollToContact = () => {
@@ -189,13 +192,6 @@ export const Header = ({ isSidebarOpen, setIsSidebarOpen }: HeaderProps) => {
               className="text-gray-700 hover:text-blue-600"
             >
               Industries
-            </Button>
-            <Button 
-              variant="ghost" 
-              onClick={scrollToFireSafetyAudit}
-              className="text-gray-700 hover:text-blue-600"
-            >
-              Schedule Fire Safety Audit
             </Button>
             <Button 
               variant="ghost" 
