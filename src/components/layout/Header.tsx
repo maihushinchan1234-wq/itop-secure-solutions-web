@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Menu, X, Home } from 'lucide-react';
+import { Home } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -21,14 +21,6 @@ export const Header = ({ isSidebarOpen, setIsSidebarOpen }: HeaderProps) => {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }, 100);
-  };
-
-  const scrollToContact = () => {
-    window.location.href = '/#contact';
-  };
-
-  const scrollToFireSafetyAudit = () => {
-    window.location.href = '/#contact';
   };
 
   const goHome = () => {
@@ -245,22 +237,10 @@ export const Header = ({ isSidebarOpen, setIsSidebarOpen }: HeaderProps) => {
   };
 
   return (
-    <header className="bg-white shadow-sm border-b sticky top-0 z-40">
-      <div className="flex items-center justify-between px-4 py-3">
+    <header className="bg-white shadow-sm border-b sticky top-0 z-30">
+      <div className="flex items-center justify-between px-4 py-3 ml-16">
         <div className="flex items-center">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="lg:hidden p-2"
-          >
-            <div className="w-6 h-6 flex flex-col justify-between">
-              <div className="w-full h-0.5 bg-gray-600"></div>
-              <div className="w-full h-0.5 bg-gray-600"></div>
-              <div className="w-full h-0.5 bg-gray-600"></div>
-            </div>
-          </Button>
-          <div className="flex items-center ml-2">
+          <div className="flex items-center">
             <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
               iTOP Services
             </h1>
