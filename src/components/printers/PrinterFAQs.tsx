@@ -3,18 +3,33 @@ import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export const PrinterFAQs = () => {
-  const faqs = [
+  const generalFaqs = [
     {
-      question: "Do you provide on-site printer repairs?",
-      answer: "Yes, we offer same-day on-site support in most areas across Delhi NCR. Our certified technicians can diagnose and repair most printer issues at your location, saving you time and hassle."
+      question: "What areas do you serve?",
+      answer: "We provide services across Delhi and NCR. You can contact us to check availability in your specific area."
     },
     {
-      question: "What types of printers do you sell?",
-      answer: "We sell a wide range of printers including inkjet, laser, and multifunction printers from top brands like HP, Canon, Epson, Brother, and more. We also offer refurbished printers for budget-conscious customers."
+      question: "Do you provide emergency or same-day services?",
+      answer: "Yes, we offer same-day support for urgent installations, breakdowns, or safety issues."
     },
     {
-      question: "Can I get a printer on rent for a short-term project?",
-      answer: "Absolutely! We offer flexible leasing options from 1 week to 1 year. Our rental plans include maintenance and technical support, making it perfect for events, temporary projects, or seasonal business needs."
+      question: "Are your staff and technicians certified?",
+      answer: "Yes. Our team is professionally trained, background-verified, and equipped with all necessary tools and certifications."
+    }
+  ];
+
+  const printerFaqs = [
+    {
+      question: "Do you repair all brands of printers?",
+      answer: "Yes. We repair HP, Canon, Epson, Brother, Samsung, Pantum, and more. We handle all issues from hardware to cartridge problems."
+    },
+    {
+      question: "Can I rent a printer for short-term use?",
+      answer: "Yes. We offer flexible daily/weekly/monthly printer rental options for events, exams, and offices."
+    },
+    {
+      question: "How much time does a repair take?",
+      answer: "Most repairs are completed within 24 hours. Complex issues may take longer, but we keep you informed at each step."
     },
     {
       question: "Do you provide genuine toner and ink cartridges?",
@@ -50,19 +65,40 @@ export const PrinterFAQs = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border rounded-lg px-6">
-                <AccordionTrigger className="text-left hover:no-underline">
-                  <span className="font-semibold text-gray-800">{faq.question}</span>
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-600 pb-4">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+        <div className="max-w-4xl mx-auto space-y-8">
+          {/* General FAQs */}
+          <div>
+            <h3 className="text-2xl font-bold text-gray-800 mb-6">General Questions</h3>
+            <Accordion type="single" collapsible className="space-y-4">
+              {generalFaqs.map((faq, index) => (
+                <AccordionItem key={index} value={`general-${index}`} className="border rounded-lg px-6">
+                  <AccordionTrigger className="text-left hover:no-underline">
+                    <span className="font-semibold text-gray-800">{faq.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600 pb-4">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+
+          {/* Printer FAQs */}
+          <div>
+            <h3 className="text-2xl font-bold text-gray-800 mb-6">Printer Services</h3>
+            <Accordion type="single" collapsible className="space-y-4">
+              {printerFaqs.map((faq, index) => (
+                <AccordionItem key={index} value={`printer-${index}`} className="border rounded-lg px-6">
+                  <AccordionTrigger className="text-left hover:no-underline">
+                    <span className="font-semibold text-gray-800">{faq.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600 pb-4">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
         </div>
 
         <div className="mt-12 text-center">

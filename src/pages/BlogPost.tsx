@@ -17,22 +17,39 @@ const BlogPost = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Mock blog posts data
+  // Detailed blog posts data
   const blogPosts = {
     '1': {
       title: 'The Future of Home Security with Smart Door Locks',
-      content: `Smart door locks are revolutionizing home security by combining convenience with advanced protection. These innovative devices eliminate the need for traditional keys while providing enhanced security features that give homeowners peace of mind.
+      content: `As technology continues to evolve, so do our homes. Traditional lock and key systems are gradually being replaced by smart door locks that offer enhanced convenience, safety, and control. In this article, we explore how smart door locks work, their advantages, popular brands, and tips for choosing the right one.
 
-      Modern smart locks offer multiple access methods including keypads, smartphone apps, biometric scanners, and even voice control. This flexibility means you can grant access to family members, guests, or service providers without being physically present.
+## What Are Smart Door Locks?
 
-      Key benefits of smart door locks include:
-      • Remote access control from anywhere
-      • Activity logs to track who enters and exits
-      • Temporary access codes for guests
-      • Integration with home automation systems
-      • Automatic locking features for added security
+Smart door locks are advanced locking systems that operate without traditional keys. Instead, they use technologies such as Bluetooth, Wi-Fi, fingerprint scanning, numeric keypads, or mobile apps to unlock and lock doors. These locks can be operated remotely, allowing users to control access even when they're not at home.
 
-      When choosing a smart lock, consider factors like battery life, connectivity options (Wi-Fi, Bluetooth, Z-Wave), and compatibility with your existing door hardware. Professional installation ensures optimal performance and security.`,
+## Key Benefits of Smart Locks:
+
+• **Remote Access**: Lock or unlock your door from anywhere using a mobile app.
+• **Temporary Access Codes**: Provide guests, cleaners, or repair workers with one-time or time-limited access codes.
+• **Real-Time Alerts**: Receive notifications if someone tries to tamper with or force the lock.
+• **Activity Logs**: Track who enters and exits your home.
+• **Integration**: Easily integrate with other smart home devices like doorbell cameras or alarm systems.
+
+## Best Smart Lock Brands in India:
+
+• **Qubo** – Affordable and app-connected.
+• **Yale** – Highly secure and stylish.
+• **Godrej** – Trusted Indian brand with a range of digital locks.
+• **August** – Seamless smartphone control and voice assistant integration.
+• **Hafele** – Sleek European designs with high security.
+
+## Choosing the Right Lock for Your Door:
+
+• **Wooden Doors**: Compatible with most smart locks.
+• **Metal Doors**: Ensure the lock supports metal frame installation.
+• **Glass Doors**: Require special digital locking solutions.
+
+Smart door locks offer a blend of safety, convenience, and modern lifestyle enhancement. Whether it's your home or office, upgrading to a smart lock is a smart move in today's security-conscious world.`,
       author: 'Alice Johnson',
       date: '2024-01-20',
       readTime: '5 min read',
@@ -41,19 +58,33 @@ const BlogPost = () => {
     },
     '2': {
       title: 'Top 5 CCTV Cameras for Business Surveillance',
-      content: `Choosing the right CCTV system is crucial for business security. Here's our comprehensive guide to the top 5 CCTV cameras that provide excellent surveillance for businesses of all sizes.
+      content: `Business security is a priority for every owner, whether you run a small shop or a large warehouse. Installing CCTV cameras is one of the most effective ways to monitor, deter theft, and ensure employee safety. This blog will guide you through the best CCTV cameras suitable for business use in India.
 
-      1. IP Network Cameras - High-resolution digital cameras that connect to your network, offering remote viewing and recording capabilities.
+## Features to Look for in Business CCTV Cameras:
 
-      2. PTZ (Pan-Tilt-Zoom) Cameras - Perfect for large areas, these cameras can be controlled remotely to focus on specific areas.
+• **High Resolution (HD/4K)**: Clear footage helps with facial and license plate recognition.
+• **Night Vision**: IR LEDs allow for visibility even in complete darkness.
+• **Wide Field of View**: Covers more area with fewer cameras.
+• **Motion Detection**: Sends alerts when unusual movement is detected.
+• **Cloud or DVR Storage**: Choose based on how long you want to retain footage.
+• **Mobile Access**: Monitor live feeds on your smartphone.
 
-      3. Thermal Cameras - Detect heat signatures, ideal for perimeter security and low-light conditions.
+## Top 5 CCTV Camera Brands for Businesses in India:
 
-      4. Wireless Cameras - Easy installation with no cable requirements, perfect for temporary setups or hard-to-reach locations.
+1. **CP Plus**: Great value, reliable DVR kits.
+2. **Hikvision**: Industry leader in surveillance technology.
+3. **Dahua**: Excellent software features with mobile app support.
+4. **Godrej**: Strong Indian brand with great service.
+5. **TP-Link Tapo**: Best for small offices with plug-and-play setup.
 
-      5. 4K Ultra HD Cameras - Crystal clear footage with incredible detail, essential for identifying faces and license plates.
+## Placement Tips for CCTV Installation:
 
-      Consider factors like resolution, night vision capabilities, weather resistance, and storage requirements when selecting your CCTV system. Professional installation ensures optimal camera placement and system configuration.`,
+• Mount cameras at entrances and exits.
+• Cover blind spots and low-visibility areas.
+• Point cameras at cash counters, storerooms, and gates.
+• Ensure clear line of sight and proper lighting.
+
+Choosing the right CCTV system ensures peace of mind, operational control, and better protection of your assets. Always consider your space and surveillance needs before making a purchase.`,
       author: 'Bob Williams',
       date: '2024-02-15',
       readTime: '7 min read',
@@ -62,27 +93,71 @@ const BlogPost = () => {
     },
     '3': {
       title: 'Ensuring Fire Safety: A Guide to Modern Fire Alarms',
-      content: `Fire safety is paramount in any building, and modern fire alarm systems provide the early warning needed to protect lives and property. Understanding the different types of fire alarms and their applications is essential for comprehensive fire protection.
+      content: `Fire emergencies can cause irreversible damage and even loss of life. The best way to protect your family, employees, and property is by installing modern fire alarm systems. This blog explains everything you need to know about fire alarms, their types, installation, and trusted brands.
 
-      Types of Fire Alarm Systems:
-      • Conventional Fire Alarms - Basic systems suitable for small buildings
-      • Addressable Fire Alarms - Advanced systems that pinpoint exact alarm locations
-      • Wireless Fire Alarms - Easy installation with no wiring required
-      • Aspirating Smoke Detection - Ultra-sensitive systems for critical areas
+## What Are Fire Alarms?
 
-      Modern fire alarms offer features like:
-      - Multi-sensor detection (smoke, heat, carbon monoxide)
-      - Voice evacuation systems
-      - Integration with building management systems
-      - Remote monitoring capabilities
-      - Automated emergency response
+Fire alarms are devices that detect smoke, heat, or flames and issue warnings to alert people to evacuate or take preventive action. They can be standalone units or part of a central fire safety system.
 
-      Regular maintenance and testing are crucial for fire alarm effectiveness. Professional installation ensures compliance with local fire codes and optimal system performance. Don't compromise on fire safety - invest in a quality fire alarm system today.`,
+## Types of Fire Alarm Systems:
+
+• **Smoke Detectors**: Detect airborne smoke particles.
+• **Heat Detectors**: React to a rapid rise in temperature.
+• **Flame Sensors**: Detect visible flames using infrared sensors.
+
+## Recommended Brands in India:
+
+• **Honeywell** – Global leader in fire detection technology.
+• **Ravel** – Indian brand offering quality control panels and sensors.
+• **Ceasefire** – Trusted for both fire detection and suppression systems.
+• **Bosch** – Advanced fire safety systems for large premises.
+• **Siemens** – Best for high-end automation and integration.
+
+## Best Locations to Install Fire Alarms:
+
+• Kitchens
+• Living rooms
+• Hallways
+• Near electrical control panels
+• Above ceilings in offices or warehouses
+
+Installing a modern fire alarm is not a luxury but a necessity. It ensures early detection, faster response, and reduced damage. Always use certified brands and schedule periodic maintenance.`,
       author: 'Charlie Brown',
       date: '2024-03-10',
       readTime: '6 min read',
       category: 'Fire Alarms',
       image: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=800&h=400&fit=crop'
+    },
+    '4': {
+      title: 'Laser vs Inkjet Printers: Which One Suits Your Needs?',
+      content: `Buying a printer can be overwhelming with so many options available. Should you get a laser or an inkjet printer? This guide helps you make the right choice based on your usage, budget, and printing needs.
+
+## Inkjet Printers:
+
+• Use liquid ink sprayed through nozzles.
+• **Best for:** Color prints, photos, occasional home use.
+• **Pros:** Lower cost, compact size, high-quality color.
+• **Cons:** Slower, ink may dry out with infrequent use.
+
+## Laser Printers:
+
+• Use powdered toner and heat to fuse text/images.
+• **Best for:** Offices, bulk document printing.
+• **Pros:** Fast, sharp black text, lower cost per page.
+• **Cons:** Higher upfront cost, bulky.
+
+## Choosing Based on Use:
+
+• **Home users**: Inkjet for school projects, photos
+• **Students**: Ink tank printers for low-cost, color
+• **Businesses**: Monochrome or color laser for speed & efficiency
+
+Your printing needs determine the right printer. Inkjet = Color & occasional. Laser = Speed & documents. Choose wisely to save money and hassle.`,
+      author: 'Tech Expert',
+      date: '2024-03-15',
+      readTime: '4 min read',
+      category: 'Printers',
+      image: 'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=800&h=400&fit=crop'
     },
   };
 
@@ -114,6 +189,22 @@ const BlogPost = () => {
       </SidebarProvider>
     );
   }
+
+  const formatContent = (content: string) => {
+    const lines = content.split('\n');
+    return lines.map((line, index) => {
+      if (line.startsWith('## ')) {
+        return <h2 key={index} className="text-2xl font-bold text-gray-800 mt-8 mb-4">{line.replace('## ', '')}</h2>;
+      }
+      if (line.startsWith('• ')) {
+        return <li key={index} className="text-gray-700 mb-2 ml-4">{line.replace('• ', '')}</li>;
+      }
+      if (line.trim() === '') {
+        return <br key={index} />;
+      }
+      return <p key={index} className="text-gray-700 leading-relaxed mb-4">{line}</p>;
+    });
+  };
 
   return (
     <SidebarProvider>
@@ -174,12 +265,8 @@ const BlogPost = () => {
 
                 {/* Article Body */}
                 <div className="prose prose-lg max-w-none">
-                  <div className="text-gray-700 leading-relaxed space-y-6">
-                    {post.content.split('\n\n').map((paragraph, index) => (
-                      <p key={index} className="text-lg leading-relaxed">
-                        {paragraph.trim()}
-                      </p>
-                    ))}
+                  <div className="text-gray-700 leading-relaxed space-y-4">
+                    {formatContent(post.content)}
                   </div>
                 </div>
 

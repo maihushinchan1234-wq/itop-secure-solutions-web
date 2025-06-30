@@ -3,48 +3,56 @@ import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export const CCTVFAQs = () => {
-  const faqs = [
+  const cctvFaqs = [
     {
-      question: "Can I view CCTV footage on my mobile?",
-      answer: "Yes! Most modern CCTV systems come with mobile apps that allow you to view live footage and recorded videos from anywhere with an internet connection. We'll help you set up the app and train you on its features."
+      question: "How many CCTV cameras do I need for my shop?",
+      answer: "Usually 2–4 cameras are enough: one for entry, one for the counter, one for storage, and one outdoor. We provide layout planning as well."
     },
     {
-      question: "Is night vision available for outdoor cameras?",
-      answer: "Absolutely! We offer infrared (IR) cameras with excellent night vision capabilities. These cameras can capture clear footage even in complete darkness, with ranges from 20 to 100+ meters depending on the model."
+      question: "Can I access my CCTV feed on my phone?",
+      answer: "Yes. All our systems support mobile viewing via dedicated Android and iOS apps."
     },
     {
-      question: "Can I integrate AI or face recognition with existing setup?",
-      answer: "Yes, in many cases we can upgrade your existing system with AI-powered cameras or add facial recognition capabilities. Our technicians will assess your current setup and recommend the best upgrade path."
+      question: "What's better: wired or wireless cameras?",
+      answer: "Wired systems are more reliable but take more time to install. Wireless systems are easy to set up but may depend on Wi-Fi quality."
     },
     {
-      question: "What's the typical range of a bullet camera?",
-      answer: "Bullet cameras typically have excellent zoom capabilities and can monitor areas from 50 to 200+ meters depending on the lens. They're perfect for long corridors, parking lots, and perimeter monitoring."
+      question: "How long can CCTV footage be stored?",
+      answer: "Storage duration depends on your DVR/NVR capacity and recording quality. Typically ranges from 7 days to 3 months. Cloud storage options are also available."
     },
     {
-      question: "Will my CCTV system work during a power outage?",
-      answer: "Yes, with proper backup solutions! We can install UPS (Uninterruptible Power Supply) systems that keep your cameras running for several hours during power cuts. Some wireless cameras also have built-in battery backup."
+      question: "Do CCTV cameras work in complete darkness?",
+      answer: "Yes, cameras with infrared (IR) night vision can record in complete darkness up to specified distances, usually 20-100 meters depending on the model."
     },
     {
-      question: "How often should I get my system checked?",
-      answer: "We recommend quarterly maintenance checks to clean lenses, check connections, and ensure optimal performance. However, modern IP cameras are quite reliable and may only need bi-annual professional servicing."
+      question: "Can I upgrade my existing analog CCTV system?",
+      answer: "Yes! We can upgrade your system to HD or IP cameras while utilizing existing cable infrastructure in most cases."
+    },
+    {
+      question: "What's the difference between HD and IP cameras?",
+      answer: "HD cameras provide high-definition video over coax cables, while IP cameras offer superior image quality, advanced features, and network connectivity but require more bandwidth."
+    },
+    {
+      question: "Do I need internet for CCTV to work?",
+      answer: "No, CCTV systems work independently. Internet is only needed for remote viewing on mobile devices or cloud storage features."
     }
   ];
 
   return (
-    <section id="faqs" className="py-16 bg-gray-50">
+    <section id="faqs" className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Frequently Asked Questions
+            CCTV System FAQs
           </h2>
           <p className="text-lg text-gray-600">
-            Common questions about CCTV installation and monitoring
+            Common questions about CCTV installation and surveillance systems
           </p>
         </div>
 
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
+            {cctvFaqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border border-gray-200 rounded-lg">
                 <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
                   <span className="font-semibold text-gray-800">{faq.question}</span>
@@ -55,6 +63,31 @@ export const CCTVFAQs = () => {
               </AccordionItem>
             ))}
           </Accordion>
+        </div>
+
+        <div className="mt-12 text-center">
+          <div className="bg-blue-50 rounded-lg p-8">
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">
+              Ready to Secure Your Property?
+            </h3>
+            <p className="text-gray-600 mb-6">
+              Get a free security assessment and customized CCTV solution for your needs.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <button 
+                onClick={() => window.location.href = '/#contact'}
+                className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Free Assessment
+              </button>
+              <button 
+                onClick={() => window.open('https://wa.me/919990820830', '_blank')}
+                className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors"
+              >
+                WhatsApp Us
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>

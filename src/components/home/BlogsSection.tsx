@@ -10,7 +10,7 @@ export const BlogsSection = () => {
     {
       id: '1',
       title: 'The Future of Home Security with Smart Door Locks',
-      excerpt: 'Explore the latest trends in smart door lock technology and how they are transforming home security.',
+      excerpt: 'Discover how smart door locks work, their key benefits like remote access and activity logs, and the best brands available in India including Qubo, Yale, and Godrej.',
       author: 'Alice Johnson',
       date: '2024-01-20',
       category: 'Door Locks'
@@ -18,7 +18,7 @@ export const BlogsSection = () => {
     {
       id: '2',
       title: 'Top 5 CCTV Cameras for Business Surveillance',
-      excerpt: 'A detailed review of the best CCTV cameras for enhancing business security and preventing theft.',
+      excerpt: 'A comprehensive guide to choosing the right CCTV system for your business, featuring top brands like CP Plus, Hikvision, and Dahua with placement tips.',
       author: 'Bob Williams',
       date: '2024-02-15',
       category: 'CCTV'
@@ -26,10 +26,18 @@ export const BlogsSection = () => {
     {
       id: '3',
       title: 'Ensuring Fire Safety: A Guide to Modern Fire Alarms',
-      excerpt: 'Learn about the importance of modern fire alarms and how they can save lives and protect property.',
+      excerpt: 'Learn about different types of fire alarm systems, recommended brands like Honeywell and Ceasefire, and the best locations for installation.',
       author: 'Charlie Brown',
       date: '2024-03-10',
       category: 'Fire Alarms'
+    },
+    {
+      id: '4',
+      title: 'Laser vs Inkjet Printers: Which One Suits Your Needs?',
+      excerpt: 'Compare inkjet and laser printers to make the right choice based on your usage, budget, and printing needs for home or business use.',
+      author: 'Tech Expert',
+      date: '2024-03-15',
+      category: 'Printers'
     },
   ];
 
@@ -57,7 +65,7 @@ export const BlogsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {blogs.map((blog) => (
             <article 
               key={blog.id} 
@@ -79,7 +87,7 @@ export const BlogsSection = () => {
                   {blog.title}
                 </h3>
                 
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-600 mb-4 text-sm">
                   {blog.excerpt}
                 </p>
                 
