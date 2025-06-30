@@ -1,170 +1,236 @@
 
-import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, MessageSquare } from 'lucide-react';
-import { useToast } from "@/hooks/use-toast";
+import React from 'react';
+import { Phone, Mail, MapPin, Clock, MessageCircle, Shield, Zap, Headphones } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 
 export const ContactSection = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    setFormData({ name: '', email: '', phone: '', message: '' });
-  };
-
-  const handleWhatsApp = () => {
-    window.open('https://wa.me/919990820830', '_blank');
-  };
-
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 relative overflow-hidden">
+    <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-black opacity-10"></div>
-      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"></div>
+      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500"></div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 relative">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-            Contact Us
+          <div className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4">
+            🚀 Get Expert Help Now
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Contact iTOP Services
+            </span>
           </h2>
-          <div className="w-24 h-1 bg-blue-400 mx-auto mb-6"></div>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            Get in touch for all your technology and security needs. We're here to help 24/7.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Ready to transform your tech experience? Our certified experts are standing by to provide 
+            immediate assistance, professional consultations, and comprehensive solutions tailored to your needs.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-            <h3 className="text-3xl font-bold text-white mb-8">Get In Touch</h3>
-            <div className="space-y-8">
-              <div className="flex items-center">
-                <div className="bg-blue-400 w-16 h-16 rounded-full flex items-center justify-center mr-6 shadow-lg">
-                  <Phone className="h-8 w-8 text-white" />
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Contact Information */}
+          <div className="space-y-8">
+            {/* Quick Stats */}
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              <div className="bg-white p-6 rounded-xl shadow-lg border border-blue-100 text-center">
+                <div className="bg-green-100 text-green-600 rounded-full p-3 w-12 h-12 mx-auto mb-3 flex items-center justify-center">
+                  <Shield className="h-6 w-6" />
                 </div>
-                <div>
-                  <h4 className="font-semibold text-white text-lg">Phone / WhatsApp</h4>
-                  <p className="text-blue-100 text-lg">+91 9990820830</p>
-                </div>
+                <div className="text-2xl font-bold text-gray-800">500+</div>
+                <div className="text-sm text-gray-600">Happy Customers</div>
               </div>
-              <div className="flex items-center">
-                <div className="bg-blue-400 w-16 h-16 rounded-full flex items-center justify-center mr-6 shadow-lg">
-                  <Mail className="h-8 w-8 text-white" />
+              <div className="bg-white p-6 rounded-xl shadow-lg border border-blue-100 text-center">
+                <div className="bg-blue-100 text-blue-600 rounded-full p-3 w-12 h-12 mx-auto mb-3 flex items-center justify-center">
+                  <Zap className="h-6 w-6" />
                 </div>
-                <div>
-                  <h4 className="font-semibold text-white text-lg">Email</h4>
-                  <p className="text-blue-100 text-lg">sachidanand@live.in</p>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <div className="bg-blue-400 w-16 h-16 rounded-full flex items-center justify-center mr-6 shadow-lg">
-                  <MapPin className="h-8 w-8 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white text-lg">Address</h4>
-                  <p className="text-blue-100 text-lg">224, B1, DDA Flats, Loknayak Puram, New Delhi 110041</p>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <div className="bg-blue-400 w-16 h-16 rounded-full flex items-center justify-center mr-6 shadow-lg">
-                  <Clock className="h-8 w-8 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white text-lg">Coverage Area</h4>
-                  <p className="text-blue-100 text-lg">Delhi NCR</p>
-                </div>
+                <div className="text-2xl font-bold text-gray-800">24/7</div>
+                <div className="text-sm text-gray-600">Support Available</div>
               </div>
             </div>
 
-            <div className="mt-10">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.3!2d77.2!3d28.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM2JzAwLjAiTiA3N8KwMTInMDAuMCJF!5e0!3m2!1sen!2sin!4v1"
-                width="100%"
-                height="250"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="rounded-xl shadow-lg"
-              ></iframe>
+            {/* Contact Methods */}
+            <div className="space-y-6">
+              <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-green-100 text-green-600 rounded-full p-3">
+                    <Phone className="h-6 w-6" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Call for Immediate Help</h3>
+                    <p className="text-gray-600 mb-3">Speak directly with our technical experts</p>
+                    <div className="space-y-1">
+                      <a href="tel:+919876543210" className="block text-xl font-bold text-green-600 hover:text-green-700">
+                        +91 98765 43210
+                      </a>
+                      <a href="tel:+919123456789" className="block text-lg text-gray-700 hover:text-green-600">
+                        +91 91234 56789
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-blue-100 text-blue-600 rounded-full p-3">
+                    <MessageCircle className="h-6 w-6" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">WhatsApp Support</h3>
+                    <p className="text-gray-600 mb-3">Quick responses, photos, and instant quotes</p>
+                    <a 
+                      href="https://wa.me/919876543210?text=Hi, I need help with my tech services" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+                    >
+                      <MessageCircle className="h-4 w-4" />
+                      Chat on WhatsApp
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-purple-100 text-purple-600 rounded-full p-3">
+                    <Mail className="h-6 w-6" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Email Us</h3>
+                    <p className="text-gray-600 mb-3">Detailed inquiries and service requests</p>
+                    <a href="mailto:info@itopservices.com" className="text-lg font-semibold text-purple-600 hover:text-purple-700">
+                      info@itopservices.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-red-100 text-red-600 rounded-full p-3">
+                    <MapPin className="h-6 w-6" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Visit Our Office</h3>
+                    <p className="text-gray-600 mb-3">In-person consultations and device drop-off</p>
+                    <address className="text-gray-700 not-italic mb-3">
+                      224, B1, DDA Flats<br />
+                      Loknayak Puram<br />
+                      New Delhi 110041
+                    </address>
+                    <Button 
+                      onClick={() => window.open('https://maps.google.com/?q=224, B1, DDA Flats, Loknayak Puram, New Delhi 110041', '_blank')}
+                      variant="outline"
+                      className="border-red-300 text-red-600 hover:bg-red-50"
+                    >
+                      <MapPin className="h-4 w-4 mr-2" />
+                      View on Maps
+                    </Button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-8 shadow-2xl">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Name *
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                />
+          {/* Service Hours & Emergency */}
+          <div className="space-y-8">
+            {/* Service Hours */}
+            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-indigo-100 text-indigo-600 rounded-full p-3">
+                  <Clock className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800">Service Hours</h3>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Email *
-                </label>
-                <input
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                />
+              
+              <div className="space-y-4">
+                <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg border border-green-200">
+                  <span className="font-medium text-gray-700">Monday - Saturday</span>
+                  <span className="font-bold text-green-600">9:00 AM - 8:00 PM</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg border border-blue-200">
+                  <span className="font-medium text-gray-700">Sunday</span>
+                  <span className="font-bold text-blue-600">10:00 AM - 6:00 PM</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg border border-red-200">
+                  <span className="font-medium text-gray-700">Emergency Support</span>
+                  <span className="font-bold text-red-600">24/7 Available</span>
+                </div>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Phone
-                </label>
-                <input
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                />
+            </div>
+
+            {/* Emergency Services */}
+            <div className="bg-gradient-to-r from-red-500 to-red-600 text-white p-8 rounded-xl shadow-lg">
+              <div className="flex items-center gap-3 mb-4">
+                <Headphones className="h-8 w-8" />
+                <h3 className="text-xl font-bold">Emergency Support</h3>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Message *
-                </label>
-                <textarea
-                  required
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                ></textarea>
-              </div>
-              <div className="flex gap-4">
-                <button
-                  type="submit"
-                  className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+              <p className="mb-6 text-red-100">
+                Locked out? System down? Fire alarm malfunction? 
+                Our emergency response team is available 24/7 for critical situations.
+              </p>
+              <div className="space-y-3">
+                <a 
+                  href="tel:+919876543210" 
+                  className="block bg-white text-red-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-red-50 transition-colors"
                 >
-                  Send Message
-                </button>
-                <button
-                  type="button"
-                  onClick={handleWhatsApp}
-                  className="flex items-center gap-2 bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors font-semibold"
-                >
-                  <MessageSquare className="h-4 w-4" />
-                  WhatsApp
-                </button>
+                  🚨 Emergency Hotline: +91 98765 43210
+                </a>
+                <p className="text-sm text-red-100 text-center">
+                  Average response time: 30 minutes within Delhi NCR
+                </p>
               </div>
-            </form>
+            </div>
+
+            {/* Service Areas */}
+            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+              <h3 className="text-xl font-semibold text-gray-800 mb-4">Service Coverage Areas</h3>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  'Central Delhi', 'South Delhi', 'North Delhi', 'East Delhi',
+                  'West Delhi', 'Gurgaon', 'Noida', 'Faridabad',
+                  'Ghaziabad', 'Greater Noida', 'Dwarka', 'Rohini'
+                ].map((area) => (
+                  <div key={area} className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-sm text-gray-700">{area}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-sm text-gray-600 mt-4 text-center">
+                Don't see your area? <a href="tel:+919876543210" className="text-blue-600 hover:underline">Call us</a> - we might still be able to help!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-16 text-center">
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-2xl shadow-xl">
+            <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
+            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+              Don't let tech problems slow you down. Contact our expert team today for fast, 
+              reliable solutions that get your devices working perfectly.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a 
+                href="tel:+919876543210"
+                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center gap-2"
+              >
+                <Phone className="h-4 w-4" />
+                Call Now
+              </a>
+              <a 
+                href="https://wa.me/919876543210?text=Hi, I need help with my tech services"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors inline-flex items-center gap-2"
+              >
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </div>

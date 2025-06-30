@@ -1,10 +1,11 @@
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { scrollManager } from '@/utils/scrollManager';
 
 export const useScrollPosition = () => {
   const location = useLocation();
+  const isFirstVisit = useRef(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,11 +27,17 @@ export const useScrollPosition = () => {
         }
       }, 100);
     } else {
-      // Restore scroll position or scroll to top for new pages
-      const savedPosition = scrollManager.getPosition(location.pathname);
-      setTimeout(() => {
-        window.scrollTo(0, savedPosition);
-      }, 50);
+      // For first visit to any page, start from top
+      // For return visits, restore scroll position
+      if (isFirstVisit.current || !scrollManager.getPosition(location.pathname)) {
+        window.scrollTo(0, 0);
+        isFirstVisit.current = false;
+      } else {
+        const savedPosition = scrollManager.getPosition(location.pathname);
+        setTimeout(() => {
+          window.scrollTo(0, savedPosition);
+        }, 50);
+      }
     }
   }, [location]);
 };

@@ -21,10 +21,18 @@ const FeedbackPage = () => {
       />
       <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
       <main className="flex-1">
-        <FeedbackHero />
-        <FeedbackForm />
-        <FeedbackTestimonials />
-        <FeedbackOverview />
+        <div id="hero">
+          <FeedbackHero />
+        </div>
+        <div id="form">
+          <FeedbackForm />
+        </div>
+        <div id="testimonials">
+          <FeedbackTestimonials />
+        </div>
+        <div id="overview">
+          <FeedbackOverview />
+        </div>
       </main>
       <Footer />
     </div>
