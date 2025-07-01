@@ -28,6 +28,11 @@ export const Header = ({ isSidebarOpen, setIsSidebarOpen }: HeaderProps) => {
   };
 
   const getNavigationButtons = () => {
+    // Check if we're on a blog detail page
+    if (location.pathname.startsWith('/blog/')) {
+      return null; // No navigation items for blog detail pages
+    }
+
     switch (location.pathname) {
       case '/printers':
         return (
@@ -196,6 +201,33 @@ export const Header = ({ isSidebarOpen, setIsSidebarOpen }: HeaderProps) => {
               className="text-gray-700 hover:text-blue-600"
             >
               FAQs
+            </Button>
+          </>
+        );
+      
+      case '/feedback':
+        return (
+          <>
+            <Button 
+              variant="ghost" 
+              onClick={() => scrollToSection('hero')}
+              className="text-gray-700 hover:text-blue-600"
+            >
+              Share Your Experience
+            </Button>
+            <Button 
+              variant="ghost" 
+              onClick={() => scrollToSection('testimonials')}
+              className="text-gray-700 hover:text-blue-600"
+            >
+              Customer Testimonials
+            </Button>
+            <Button 
+              variant="ghost" 
+              onClick={() => scrollToSection('overview')}
+              className="text-gray-700 hover:text-blue-600"
+            >
+              Rating Overview
             </Button>
           </>
         );
