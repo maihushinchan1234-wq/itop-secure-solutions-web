@@ -42,116 +42,134 @@
   color: #888;
 }
 
-/* Blog Content Styling - Fix Overlapping Issues */
+/* Blog Content Styling - Fixed Layout Issues */
 .blog-content {
   line-height: 1.8;
   font-size: 16px;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .blog-content h1,
 .blog-content h2,
 .blog-content h3,
 .blog-content h4 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  line-height: 1.4;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
   clear: both;
-  position: relative;
+  position: static;
+  display: block;
+  width: 100%;
 }
 
 .blog-content h1 {
   font-size: 2.5rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
 .blog-content h2 {
   font-size: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 1.25rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .blog-content h3 {
   font-size: 1.5rem;
-  margin-top: 1.75rem;
-  margin-bottom: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .blog-content h4 {
   font-size: 1.25rem;
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
+  margin-top: 1.75rem;
+  margin-bottom: 1rem;
 }
 
 .blog-content p {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   line-height: 1.8;
-  position: relative;
+  position: static;
   clear: both;
+  display: block;
+  width: 100%;
 }
 
 .blog-content ul,
 .blog-content ol {
-  margin-bottom: 1.5rem;
-  padding-left: 1.5rem;
-  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding-left: 2rem;
+  position: static;
   clear: both;
+  display: block;
+  width: 100%;
 }
 
 .blog-content li {
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   line-height: 1.7;
-  position: relative;
+  position: static;
+  display: list-item;
 }
 
 .blog-content .flex {
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem;
   align-items: flex-start;
-  margin-bottom: 1rem;
-  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  position: static;
   clear: both;
+  flex-wrap: wrap;
 }
 
 .blog-content .grid {
   display: grid;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  position: relative;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  position: static;
   clear: both;
 }
 
+/* Fix spacing utilities */
 .blog-content .space-y-1 > * + * {
-  margin-top: 0.25rem;
+  margin-top: 0.25rem !important;
 }
 
 .blog-content .space-y-2 > * + * {
-  margin-top: 0.5rem;
+  margin-top: 0.5rem !important;
 }
 
 .blog-content .space-y-3 > * + * {
-  margin-top: 0.75rem;
+  margin-top: 0.75rem !important;
 }
 
 .blog-content .space-y-4 > * + * {
-  margin-top: 1rem;
+  margin-top: 1rem !important;
 }
 
 .blog-content .space-y-6 > * + * {
-  margin-top: 1.5rem;
+  margin-top: 1.5rem !important;
 }
 
 .blog-content .space-y-8 > * + * {
-  margin-top: 2rem;
+  margin-top: 2rem !important;
 }
 
-/* Fix for overlapping divs and containers */
+/* Fix for content containers */
 .blog-content > div {
-  position: relative;
+  position: static;
   clear: both;
+  margin-top: 2rem;
   margin-bottom: 2rem;
+  display: block;
+  width: 100%;
 }
 
+/* Fix background sections */
 .blog-content .bg-gradient-to-r,
 .blog-content .bg-green-50,
 .blog-content .bg-blue-50,
@@ -160,31 +178,41 @@
 .blog-content .bg-purple-50,
 .blog-content .bg-orange-50,
 .blog-content .bg-white {
-  position: relative;
+  position: static;
   clear: both;
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Ensure icons don't overlap text */
+/* Fix icon alignment */
 .blog-content .flex-shrink-0 {
   flex-shrink: 0;
-  margin-right: 0.75rem;
+  margin-right: 1rem;
+  align-self: flex-start;
 }
 
-/* Fix for text alignment and spacing */
+/* Text alignment fixes */
 .blog-content .text-left {
   text-align: left;
+}
+
+.blog-content .text-center {
+  text-align: center;
 }
 
 .blog-content .leading-relaxed {
   line-height: 1.75;
 }
 
-/* Prevent absolute positioning issues */
+/* Reset positioning issues */
 .blog-content * {
-  position: relative;
+  position: static;
+  box-sizing: border-box;
 }
 
 .blog-content .absolute {
@@ -195,10 +223,38 @@
   position: relative;
 }
 
+.blog-content .fixed {
+  position: fixed;
+}
+
+/* Grid layouts for cards and features */
+.blog-content .grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.blog-content .grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.blog-content .grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Card spacing fixes */
+.blog-content .rounded-lg,
+.blog-content .rounded-xl {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 /* Responsive fixes */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .blog-content {
-    font-size: 14px;
+    font-size: 15px;
+    padding: 0 1rem;
   }
   
   .blog-content h1 {
@@ -213,12 +269,79 @@
     font-size: 1.5rem;
   }
   
+  .blog-content .grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .blog-content .grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-content {
+    font-size: 14px;
+    padding: 0 0.5rem;
+  }
+  
+  .blog-content h1 {
+    font-size: 1.75rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .blog-content h2 {
+    font-size: 1.5rem;
+    margin-top: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .blog-content h3 {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
   .blog-content .grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
   .blog-content .flex {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .blog-content .bg-gradient-to-r,
+  .blog-content .bg-green-50,
+  .blog-content .bg-blue-50,
+  .blog-content .bg-yellow-50,
+  .blog-content .bg-red-50,
+  .blog-content .bg-purple-50,
+  .blog-content .bg-orange-50,
+  .blog-content .bg-white {
+    padding: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-content .bg-gradient-to-r,
+  .blog-content .bg-green-50,
+  .blog-content .bg-blue-50,
+  .blog-content .bg-yellow-50,
+  .blog-content .bg-red-50,
+  .blog-content .bg-purple-50,
+  .blog-content .bg-orange-50,
+  .blog-content .bg-white {
+    padding: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .blog-content .flex-shrink-0 {
+    margin-right: 0.75rem;
   }
 }
