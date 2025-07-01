@@ -55,10 +55,10 @@ export const DoorLocksFAQs = () => {
             {doorLockFaqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border border-gray-200 rounded-lg">
                 <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
-                  <span className="font-semibold text-gray-800">{faq.question}</span>
+                  <span className="font-semibold text-gray-800 text-left leading-relaxed">{faq.question}</span>
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-4 pt-0">
-                  <p className="text-gray-600">{faq.answer}</p>
+                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
                 </AccordionContent>
               </AccordionItem>
             ))}
@@ -66,11 +66,11 @@ export const DoorLocksFAQs = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <div className="bg-blue-50 rounded-lg p-8">
+          <div className="bg-blue-50 rounded-lg p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-800 mb-4">
               Need Smart Lock Installation?
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-6 leading-relaxed">
               Our certified technicians provide professional installation and setup for all smart lock brands.
             </p>
             <div className="flex flex-wrap justify-center gap-4">

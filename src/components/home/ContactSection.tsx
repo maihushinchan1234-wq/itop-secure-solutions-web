@@ -1,11 +1,11 @@
 
 import React from 'react';
-import { Phone, Mail, MapPin, Clock, MessageCircle, Shield, Zap, Headphones } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, MessageCircle, Shield, Zap } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 export const ContactSection = () => {
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
+    <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden border-t-4 border-blue-500">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"></div>
       <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500"></div>
@@ -133,7 +133,7 @@ export const ContactSection = () => {
             </div>
           </div>
 
-          {/* Service Hours & Emergency */}
+          {/* Service Hours & Areas */}
           <div className="space-y-8">
             {/* Service Hours */}
             <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
@@ -153,33 +153,10 @@ export const ContactSection = () => {
                   <span className="font-medium text-gray-700">Sunday</span>
                   <span className="font-bold text-blue-600">10:00 AM - 6:00 PM</span>
                 </div>
-                <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg border border-red-200">
+                <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg border border-orange-200">
                   <span className="font-medium text-gray-700">Emergency Support</span>
-                  <span className="font-bold text-red-600">24/7 Available</span>
+                  <span className="font-bold text-orange-600">Available on Call</span>
                 </div>
-              </div>
-            </div>
-
-            {/* Emergency Services */}
-            <div className="bg-gradient-to-r from-red-500 to-red-600 text-white p-8 rounded-xl shadow-lg">
-              <div className="flex items-center gap-3 mb-4">
-                <Headphones className="h-8 w-8" />
-                <h3 className="text-xl font-bold">Emergency Support</h3>
-              </div>
-              <p className="mb-6 text-red-100">
-                Locked out? System down? Fire alarm malfunction? 
-                Our emergency response team is available 24/7 for critical situations.
-              </p>
-              <div className="space-y-3">
-                <a 
-                  href="tel:+919876543210" 
-                  className="block bg-white text-red-600 px-6 py-3 rounded-lg font-semibold text-center hover:bg-red-50 transition-colors"
-                >
-                  🚨 Emergency Hotline: +91 98765 43210
-                </a>
-                <p className="text-sm text-red-100 text-center">
-                  Average response time: 30 minutes within Delhi NCR
-                </p>
               </div>
             </div>
 
