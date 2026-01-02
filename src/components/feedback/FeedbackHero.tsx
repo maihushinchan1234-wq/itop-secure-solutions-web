@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { Star } from 'lucide-react';
+import { useFeedbackHero } from '@/hooks/useCMSContent';
 
 export const FeedbackHero = () => {
+  const { content } = useFeedbackHero();
+
   return (
     <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
       <div className="container mx-auto px-4 text-center">
@@ -12,15 +15,15 @@ export const FeedbackHero = () => {
           ))}
         </div>
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          What Our Customers Say
+          {content.title}
         </h1>
         <p className="text-xl md:text-2xl mb-8 opacity-90">
-          Real feedback from our happy clients — across printer repair, smart lock installs, CCTV setup, and more
+          {content.subtitle}
         </p>
         <div className="flex justify-center items-center gap-4 text-lg">
-          <span className="text-yellow-400 font-bold">4.8/5</span>
+          <span className="text-yellow-400 font-bold">{content.rating}</span>
           <span>•</span>
-          <span>Based on 150+ reviews</span>
+          <span>{content.reviewCount}</span>
         </div>
       </div>
     </section>

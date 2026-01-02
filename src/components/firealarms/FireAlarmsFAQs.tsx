@@ -1,76 +1,34 @@
 
 import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { usePageFAQs } from '@/hooks/useCMSContent';
 
 export const FireAlarmsFAQs = () => {
-  const faqs = [
-    {
-      question: "What is the average lifespan of a fire alarm device?",
-      answer: "Typically, 8 to 10 years. Sensors should be tested regularly and batteries replaced annually."
-    },
-    {
-      question: "How often should I test my fire alarm?",
-      answer: "Once a month. Testing takes under 5 minutes and ensures your system is always ready."
-    },
-    {
-      question: "Can fire alarms be monitored on a mobile app?",
-      answer: "Yes. Smart alarms connect to apps and alert you in real-time in case of fire, smoke, or system errors."
-    },
-    {
-      question: "Do I need a fire alarm for a small office?",
-      answer: "Yes, fire alarms are essential for any workplace regardless of size. Small offices should have at least smoke detectors in main areas and compliance with local fire safety regulations."
-    },
-    {
-      question: "Will it work during a power cut?",
-      answer: "Yes, all our fire alarm systems come with battery backup that can operate for 24-72 hours during power outages, ensuring continuous protection."
-    },
-    {
-      question: "Can I upgrade an old alarm system?",
-      answer: "Absolutely! We can upgrade your existing system to addressable or smart fire alarms, add new zones, or integrate with building management systems while using existing wiring where possible."
-    },
-    {
-      question: "Can I receive alerts on my phone?",
-      answer: "Yes! Our smart fire alarm systems can send instant notifications to your smartphone, security team, and monitoring center when an alarm is triggered."
-    },
-    {
-      question: "What is the typical lifespan of a fire detector?",
-      answer: "Smoke detectors typically last 8-10 years, while heat detectors can last 15-20 years. We provide replacement schedules and proactive maintenance to ensure optimal performance."
-    },
-    {
-      question: "What's the difference between smoke and heat detectors?",
-      answer: "Smoke detectors sense airborne particles from fires, while heat detectors respond to temperature changes. Smoke detectors are more sensitive and provide earlier warning, while heat detectors are better for dusty or steamy environments."
-    },
-    {
-      question: "Are fire alarms mandatory for all buildings?",
-      answer: "Yes, fire safety regulations mandate fire detection systems for most commercial buildings, apartments, and public spaces. Residential homes also benefit greatly from fire alarm installation."
-    },
-    {
-      question: "How do I maintain my fire alarm system?",
-      answer: "Regular maintenance includes monthly testing, annual professional inspections, battery replacements, and sensor cleaning. We offer comprehensive AMC packages to handle all maintenance requirements."
-    },
-    {
-      question: "What should I do if my fire alarm keeps giving false alarms?",
-      answer: "False alarms can be caused by dust accumulation, cooking smoke, or sensor malfunction. Our technicians can diagnose the issue and recommend solutions like sensor relocation or upgrades to reduce false alarms."
+  const { content } = usePageFAQs('firealarms');
+
+  const handleCTAClick = (action: string) => {
+    if (action === 'contact') {
+      window.location.href = '/#contact';
+    } else if (action === 'whatsapp') {
+      window.open('https://wa.me/919990820830', '_blank');
     }
-  ];
+  };
 
   return (
     <section id="faqs" className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Fire Safety FAQs
+            {content.sectionTitle}
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Everything you need to know about fire alarm systems, installation requirements, maintenance schedules, 
-            and safety compliance. Our fire safety experts answer the most common questions to help you make 
-            informed decisions about protecting your property and loved ones.
+            {content.sectionDescription}
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto mb-12">
           <Accordion type="single" collapsible className="space-y-6">
-            {faqs.map((faq, index) => (
+            {content.faqs?.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                 <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
                   <span className="font-semibold text-gray-800 text-left leading-relaxed pr-4">{faq.question}</span>
@@ -154,25 +112,25 @@ export const FireAlarmsFAQs = () => {
         <div className="text-center">
           <div className="bg-red-50 rounded-lg p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-800 mb-4">
-              Protect Your Property with Professional Fire Safety
+              {content.ctaTitle}
             </h3>
             <p className="text-gray-600 mb-6 leading-relaxed max-w-2xl mx-auto">
-              Don't wait for an emergency. Get a comprehensive fire safety assessment and modern alarm system installation. 
-              Our certified fire safety experts ensure your property meets all safety standards and regulations.
+              {content.ctaDescription}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <button 
-                onClick={() => window.location.href = '/#contact'}
-                className="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-colors font-semibold"
-              >
-                Schedule Fire Safety Audit
-              </button>
-              <button 
-                onClick={() => window.open('https://wa.me/919990820830', '_blank')}
-                className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-colors font-semibold"
-              >
-                Emergency Consultation
-              </button>
+              {content.ctaButtons?.map((button, index) => (
+                <button 
+                  key={index}
+                  onClick={() => handleCTAClick(button.action)}
+                  className={`px-8 py-3 rounded-lg transition-colors font-semibold ${
+                    button.variant === 'primary' 
+                      ? 'bg-red-600 text-white hover:bg-red-700' 
+                      : 'bg-green-600 text-white hover:bg-green-700'
+                  }`}
+                >
+                  {button.text}
+                </button>
+              ))}
             </div>
           </div>
         </div>

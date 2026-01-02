@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Star, Quote } from 'lucide-react';
+import { useFeedbackTestimonials } from '@/hooks/useCMSContent';
 
 // This would typically come from a database or API
 interface Testimonial {
@@ -16,6 +17,7 @@ interface Testimonial {
 }
 
 export const FeedbackTestimonials = () => {
+  const { content } = useFeedbackTestimonials();
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
 
   // Load testimonials from localStorage (simulating a backend)
@@ -32,10 +34,10 @@ export const FeedbackTestimonials = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Customer Testimonials
+              {content.sectionTitle}
             </h2>
             <p className="text-lg text-gray-600">
-              Hear what our satisfied customers have to say about our services
+              {content.sectionDescription}
             </p>
           </div>
 
@@ -43,14 +45,13 @@ export const FeedbackTestimonials = () => {
             <div className="bg-blue-50 rounded-lg p-12">
               <Quote className="h-16 w-16 text-blue-600 opacity-20 mx-auto mb-6" />
               <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                No Reviews Yet
+                {content.emptyState.title}
               </h3>
               <p className="text-lg text-gray-600 mb-6">
-                Be the first to share your experience with iTOP Services!
+                {content.emptyState.description}
               </p>
               <p className="text-gray-500">
-                We value your feedback and use it to improve our services. 
-                Your review will help other customers make informed decisions.
+                {content.emptyState.subDescription}
               </p>
             </div>
           </div>
@@ -64,10 +65,10 @@ export const FeedbackTestimonials = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Customer Testimonials
+            {content.sectionTitle}
           </h2>
           <p className="text-lg text-gray-600">
-            Hear what our satisfied customers have to say about our services
+            {content.sectionDescription}
           </p>
           <div className="mt-4">
             <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
@@ -89,7 +90,7 @@ export const FeedbackTestimonials = () => {
                   <h4 className="font-semibold text-gray-800">{testimonial.name}</h4>
                   <p className="text-sm text-gray-600">{testimonial.location}</p>
                   {testimonial.verified && (
-                    <span className="text-xs text-green-600 font-medium">✓ Verified Customer</span>
+                    <span className="text-xs text-green-600 font-medium">✓ {content.verifiedBadgeText}</span>
                   )}
                 </div>
               </div>
@@ -121,7 +122,7 @@ export const FeedbackTestimonials = () => {
 
         <div className="text-center mt-12">
           <p className="text-gray-600">
-            Have you used our services? We'd love to hear from you!
+            {content.bottomText}
           </p>
         </div>
       </div>

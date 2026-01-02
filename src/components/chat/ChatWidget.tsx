@@ -1,7 +1,9 @@
+
 import { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Bot, User, Phone, Mail, Calendar, HelpCircle, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { useChatWidget } from '@/hooks/useCMSContent';
 
 interface Message {
   id: string;
@@ -425,6 +427,7 @@ const intentKeywords: Record<string, string[]> = {
 };
 
 const ChatWidget = () => {
+  const { content: cmsContent } = useChatWidget();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
@@ -445,7 +448,7 @@ const ChatWidget = () => {
     if (isOpen && messages.length === 0) {
       const greeting: Message = {
         id: 'greeting',
-        text: "Hello! 👋 Welcome to iTOP Services. How can I help you today? You can type your question or choose a topic below.",
+        text: cmsContent.greeting,
         sender: 'bot',
         timestamp: new Date(),
         options: mainMenuOptions,
@@ -455,7 +458,7 @@ const ChatWidget = () => {
     if (isOpen) {
       inputRef.current?.focus();
     }
-  }, [isOpen, messages.length]);
+  }, [isOpen, messages.length, cmsContent.greeting]);
 
   const formatTime = (date: Date) => {
     return date.toLocaleTimeString('en-US', {
@@ -579,12 +582,11 @@ const ChatWidget = () => {
     if (/contact|call|phone|email|reach/i.test(lowerInput)) {
       addBotMessage(`📞 **Contact Us**
 
-**Phone/WhatsApp:** +91 9990820830
-**Email:** sachidanand@live.in
+**Phone/WhatsApp:** ${cmsContent.contactInfo.phone}
+**Email:** ${cmsContent.contactInfo.email}
 
 **Address:**
-224, B1, DDA Flats, Loknayak Puram
-New Delhi 110041
+${cmsContent.contactInfo.address}
 
 **Service Area:** Delhi NCR
 
@@ -601,8 +603,8 @@ Here's how I can help:
 • Request pricing or scheduling information
 
 Or contact us directly:
-📞 +91 9990820830
-📧 sachidanand@live.in
+📞 ${cmsContent.contactInfo.phone}
+📧 ${cmsContent.contactInfo.email}
 
 Would you like to speak with a technician?`, mainMenuOptions);
   };
@@ -654,8 +656,8 @@ Would you like to speak with a technician?`, mainMenuOptions);
             <Bot className="w-6 h-6" />
           </div>
           <div className="flex-1">
-            <h3 className="font-semibold text-sm">iTOP Services Support</h3>
-            <p className="text-xs opacity-80">Online • Usually replies instantly</p>
+            <h3 className="font-semibold text-sm">{cmsContent.companyName}</h3>
+            <p className="text-xs opacity-80">{cmsContent.onlineStatus}</p>
           </div>
           <button
             onClick={() => setIsOpen(false)}
@@ -669,21 +671,21 @@ Would you like to speak with a technician?`, mainMenuOptions);
         {/* Quick Actions Bar */}
         <div className="bg-muted/50 px-3 py-2 flex items-center gap-2 border-b border-border">
           <a
-            href="tel:+919990820830"
+            href={`tel:+${cmsContent.contactInfo.phone}`}
             className="flex items-center gap-1 px-3 py-1.5 text-xs bg-background border border-border rounded-full hover:bg-accent transition-colors"
           >
             <Phone className="w-3 h-3" />
             <span>Call</span>
           </a>
           <a
-            href="mailto:sachidanand@live.in"
+            href={`mailto:${cmsContent.contactInfo.email}`}
             className="flex items-center gap-1 px-3 py-1.5 text-xs bg-background border border-border rounded-full hover:bg-accent transition-colors"
           >
             <Mail className="w-3 h-3" />
             <span>Email</span>
           </a>
           <a
-            href="https://wa.me/919990820830"
+            href={`https://wa.me/${cmsContent.contactInfo.whatsapp}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1 px-3 py-1.5 text-xs bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors"
@@ -795,7 +797,7 @@ Would you like to speak with a technician?`, mainMenuOptions);
             </Button>
           </div>
           <p className="text-[10px] text-muted-foreground text-center mt-2">
-            💬 iTOP Services • Delhi NCR • +91 9990820830
+            {cmsContent.footerText}
           </p>
         </div>
       </div>
