@@ -878,3 +878,183 @@ export function usePageCTA(pageType: string) {
     fallbacks[pageType] || fallbacks.cctv
   );
 }
+
+// ============ FEEDBACK PAGE HOOKS ============
+
+export interface FeedbackHeroContent {
+  title: string;
+  subtitle: string;
+  rating: string;
+  reviewCount: string;
+}
+
+export interface FeedbackFormContent {
+  sectionTitle: string;
+  sectionDescription: string;
+  formLabels: {
+    name: string;
+    location: string;
+    service: string;
+    rating: string;
+    feedback: string;
+    photo: string;
+  };
+  services: string[];
+  submitButtonText: string;
+  noteText: string;
+  googleReviewSection: {
+    title: string;
+    description: string;
+    buttonText: string;
+    link: string;
+  };
+}
+
+export interface FeedbackTestimonialsContent {
+  sectionTitle: string;
+  sectionDescription: string;
+  emptyState: {
+    title: string;
+    description: string;
+    subDescription: string;
+  };
+  verifiedBadgeText: string;
+  bottomText: string;
+}
+
+export interface FeedbackOverviewContent {
+  ratingTitle: string;
+  whyLoveUsTitle: string;
+  overallRating: string;
+  reviewCount: string;
+  ratingDistribution: Array<{
+    stars: number;
+    percentage: number;
+    count: number;
+  }>;
+  stats: Array<{
+    icon: string;
+    title: string;
+    description: string;
+  }>;
+}
+
+export interface ChatWidgetContent {
+  greeting: string;
+  companyName: string;
+  onlineStatus: string;
+  contactInfo: {
+    phone: string;
+    email: string;
+    whatsapp: string;
+    address: string;
+  };
+  footerText: string;
+}
+
+export function useFeedbackHero() {
+  const fallback: FeedbackHeroContent = {
+    title: "What Our Customers Say",
+    subtitle: "Real feedback from our happy clients — across printer repair, smart lock installs, CCTV setup, and more",
+    rating: "4.8/5",
+    reviewCount: "Based on 150+ reviews"
+  };
+
+  return useCMSContent<FeedbackHeroContent>(queries.feedbackHero, fallback);
+}
+
+export function useFeedbackForm() {
+  const fallback: FeedbackFormContent = {
+    sectionTitle: "Share Your Experience",
+    sectionDescription: "Help us improve our services and help others by sharing your honest feedback",
+    formLabels: {
+      name: "Your Name *",
+      location: "Your Location *",
+      service: "Service Used *",
+      rating: "Your Rating *",
+      feedback: "Your Detailed Feedback *",
+      photo: "Upload Photo (Optional)"
+    },
+    services: [
+      'Printer Repair',
+      'Printer Installation',
+      'Door Lock Installation',
+      'Smart Lock Setup',
+      'CCTV Installation',
+      'Fire Alarm Installation',
+      'AMC Service',
+      'Emergency Repair',
+      'Toner Refilling',
+      'Ink Refilling',
+      'System Configuration',
+      'Other'
+    ],
+    submitButtonText: "Submit Your Feedback",
+    noteText: "Your review will be published on our website to help other customers. We may contact you to verify your feedback. All reviews are subject to our content guidelines.",
+    googleReviewSection: {
+      title: "Write a Google Review",
+      description: "Help others find us by leaving a review on Google Business",
+      buttonText: "Write Google Review",
+      link: "https://g.page/r/YOUR_GOOGLE_BUSINESS_ID/review"
+    }
+  };
+
+  return useCMSContent<FeedbackFormContent>(queries.feedbackForm, fallback);
+}
+
+export function useFeedbackTestimonials() {
+  const fallback: FeedbackTestimonialsContent = {
+    sectionTitle: "Customer Testimonials",
+    sectionDescription: "Hear what our satisfied customers have to say about our services",
+    emptyState: {
+      title: "No Reviews Yet",
+      description: "Be the first to share your experience with iTOP Services!",
+      subDescription: "We value your feedback and use it to improve our services. Your review will help other customers make informed decisions."
+    },
+    verifiedBadgeText: "Verified Customer",
+    bottomText: "Have you used our services? We'd love to hear from you!"
+  };
+
+  return useCMSContent<FeedbackTestimonialsContent>(queries.feedbackTestimonials, fallback);
+}
+
+export function useFeedbackOverview() {
+  const fallback: FeedbackOverviewContent = {
+    ratingTitle: "Rating Overview",
+    whyLoveUsTitle: "Why Customers Love Us",
+    overallRating: "4.8",
+    reviewCount: "Based on 150+ reviews",
+    ratingDistribution: [
+      { stars: 5, percentage: 78, count: 117 },
+      { stars: 4, percentage: 15, count: 23 },
+      { stars: 3, percentage: 5, count: 8 },
+      { stars: 2, percentage: 1, count: 2 },
+      { stars: 1, percentage: 1, count: 0 }
+    ],
+    stats: [
+      { icon: "Clock", title: "24-Hour Service Response", description: "Quick response to all service requests" },
+      { icon: "Users", title: "97% Customers Recommend Us", description: "High satisfaction rate from our clients" },
+      { icon: "Award", title: "1000+ Devices Serviced", description: "Extensive experience across all services" },
+      { icon: "CheckCircle", title: "100% Issue Resolution", description: "We don't stop until it's fixed" }
+    ]
+  };
+
+  return useCMSContent<FeedbackOverviewContent>(queries.feedbackOverview, fallback);
+}
+
+export function useChatWidget() {
+  const fallback: ChatWidgetContent = {
+    greeting: "Hello! 👋 Welcome to iTOP Services. How can I help you today? You can type your question or choose a topic below.",
+    companyName: "iTOP Services Support",
+    onlineStatus: "Online • Usually replies instantly",
+    contactInfo: {
+      phone: "+919990820830",
+      email: "sachidanand@live.in",
+      whatsapp: "919990820830",
+      address: "224, B1, DDA Flats, Loknayak Puram, New Delhi 110041"
+    },
+    footerText: "💬 iTOP Services • Delhi NCR • +91 9990820830"
+  };
+
+  return useCMSContent<ChatWidgetContent>(queries.chatWidget, fallback);
+}

@@ -233,6 +233,85 @@ export const queries = {
       link
     }
   }`,
+  
+  // Feedback page content
+  feedbackHero: `*[_type == "feedbackHero"][0]{
+    title,
+    subtitle,
+    rating,
+    reviewCount
+  }`,
+  
+  feedbackForm: `*[_type == "feedbackForm"][0]{
+    sectionTitle,
+    sectionDescription,
+    formLabels{
+      name,
+      location,
+      service,
+      rating,
+      feedback,
+      photo
+    },
+    services[],
+    submitButtonText,
+    noteText,
+    googleReviewSection{
+      title,
+      description,
+      buttonText,
+      link
+    }
+  }`,
+  
+  feedbackTestimonials: `*[_type == "feedbackTestimonials"][0]{
+    sectionTitle,
+    sectionDescription,
+    emptyState{
+      title,
+      description,
+      subDescription
+    },
+    verifiedBadgeText,
+    bottomText
+  }`,
+  
+  feedbackOverview: `*[_type == "feedbackOverview"][0]{
+    ratingTitle,
+    whyLoveUsTitle,
+    overallRating,
+    reviewCount,
+    ratingDistribution[]{
+      stars,
+      percentage,
+      count
+    },
+    stats[]{
+      icon,
+      title,
+      description
+    }
+  }`,
+  
+  // Chat widget content
+  chatWidget: `*[_type == "chatWidget"][0]{
+    greeting,
+    companyName,
+    onlineStatus,
+    contactInfo{
+      phone,
+      email,
+      whatsapp,
+      address
+    },
+    mainMenuOptions[]{
+      label,
+      icon,
+      category
+    },
+    knowledgeBase,
+    footerText
+  }`,
 };
 
 // Fetch content from Sanity

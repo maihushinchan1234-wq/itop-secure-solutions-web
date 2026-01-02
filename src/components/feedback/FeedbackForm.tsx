@@ -2,9 +2,11 @@
 import React, { useState } from 'react';
 import { Star, Upload } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
+import { useFeedbackForm } from '@/hooks/useCMSContent';
 
 export const FeedbackForm = () => {
   const { toast } = useToast();
+  const { content } = useFeedbackForm();
   const [formData, setFormData] = useState({
     name: '',
     location: '',
@@ -13,21 +15,6 @@ export const FeedbackForm = () => {
     feedback: '',
     photo: null as File | null
   });
-
-  const services = [
-    'Printer Repair',
-    'Printer Installation',
-    'Door Lock Installation',
-    'Smart Lock Setup',
-    'CCTV Installation',
-    'Fire Alarm Installation',
-    'AMC Service',
-    'Emergency Repair',
-    'Toner Refilling',
-    'Ink Refilling',
-    'System Configuration',
-    'Other'
-  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -95,10 +82,10 @@ export const FeedbackForm = () => {
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Share Your Experience
+              {content.sectionTitle}
             </h2>
             <p className="text-lg text-gray-600">
-              Help us improve our services and help others by sharing your honest feedback
+              {content.sectionDescription}
             </p>
           </div>
 
@@ -107,7 +94,7 @@ export const FeedbackForm = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Name *
+                    {content.formLabels.name}
                   </label>
                   <input
                     type="text"
@@ -121,7 +108,7 @@ export const FeedbackForm = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Location *
+                    {content.formLabels.location}
                   </label>
                   <input
                     type="text"
@@ -136,7 +123,7 @@ export const FeedbackForm = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Service Used *
+                  {content.formLabels.service}
                 </label>
                 <select
                   required
@@ -145,7 +132,7 @@ export const FeedbackForm = () => {
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="">Select a service</option>
-                  {services.map((service) => (
+                  {content.services.map((service) => (
                     <option key={service} value={service}>{service}</option>
                   ))}
                 </select>
@@ -153,7 +140,7 @@ export const FeedbackForm = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Your Rating *
+                  {content.formLabels.rating}
                 </label>
                 <div className="flex gap-2">
                   {[1, 2, 3, 4, 5].map((star) => (
@@ -174,7 +161,7 @@ export const FeedbackForm = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Your Detailed Feedback *
+                  {content.formLabels.feedback}
                 </label>
                 <textarea
                   required
@@ -189,7 +176,7 @@ export const FeedbackForm = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Upload Photo (Optional)
+                  {content.formLabels.photo}
                 </label>
                 <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 transition-colors">
                   <Upload className="h-8 w-8 text-gray-400 mx-auto mb-2" />
@@ -212,8 +199,7 @@ export const FeedbackForm = () => {
                 <div className="flex">
                   <div className="ml-3">
                     <p className="text-sm text-blue-700">
-                      <strong>Note:</strong> Your review will be published on our website to help other customers. 
-                      We may contact you to verify your feedback. All reviews are subject to our content guidelines.
+                      <strong>Note:</strong> {content.noteText}
                     </p>
                   </div>
                 </div>
@@ -223,7 +209,7 @@ export const FeedbackForm = () => {
                 type="submit"
                 className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
-                Submit Your Feedback
+                {content.submitButtonText}
               </button>
             </form>
           </div>
@@ -231,16 +217,16 @@ export const FeedbackForm = () => {
           <div className="mt-12 text-center">
             <div className="bg-blue-50 rounded-lg p-6">
               <h3 className="text-xl font-bold text-gray-800 mb-2">
-                Write a Google Review
+                {content.googleReviewSection.title}
               </h3>
               <p className="text-gray-600 mb-4">
-                Help others find us by leaving a review on Google Business
+                {content.googleReviewSection.description}
               </p>
               <button 
-                onClick={() => window.open('https://g.page/r/YOUR_GOOGLE_BUSINESS_ID/review', '_blank')}
+                onClick={() => window.open(content.googleReviewSection.link, '_blank')}
                 className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
               >
-                Write Google Review
+                {content.googleReviewSection.buttonText}
               </button>
             </div>
           </div>
