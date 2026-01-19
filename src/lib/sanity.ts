@@ -155,7 +155,7 @@ export const queries = {
     types[]{
       title,
       description,
-      image,
+      "image": image.asset->url,
       features[],
       bestFor
     }
@@ -167,7 +167,7 @@ export const queries = {
     sectionDescription,
     brands[]{
       name,
-      logo,
+      "logo": logo.asset->url,
       description,
       specialties[]
     },
@@ -185,7 +185,7 @@ export const queries = {
       title,
       description,
       solutions[],
-      image
+      "image": image.asset->url
     }
   }`,
   
