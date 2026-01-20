@@ -740,30 +740,30 @@ const BlogPost = () => {
             <div class="grid md:grid-cols-2 gap-4 mb-4">
               <ul class="text-blue-700 space-y-3">
                 <li class="flex items-start gap-2">
-                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 mr-2 flex-shrink-0" />
-                  <span class="leadind-relaxed"><strong>Expert Guidance:</strong> 8+ years helping customers choose the right printer</span>
+                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 flex-shrink-0" />
+                  <span class="leading-relaxed"><strong>Expert Guidance:</strong> 8+ years helping customers choose the right printer</span>
                 </li>
                 <li class="flex items-start gap-2">
-                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 mr-2 flex-shrink-0" />
-                  <span class="leadind-relaxed"><strong>Best Prices:</strong> Competitive rates with genuine products</span>
+                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 flex-shrink-0" />
+                  <span class="leading-relaxed"><strong>Best Prices:</strong> Competitive rates with genuine products</span>
                 </li>
                 <li class="flex items-start gap-2">
-                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 mr-2 flex-shrink-0" />
-                  <span class="leadind-relaxed"><strong>Complete Service:</strong> Sales, installation, repair, and AMC</span>
+                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 flex-shrink-0" />
+                  <span class="leading-relaxed"><strong>Complete Service:</strong> Sales, installation, repair, and AMC</span>
                 </li>
               </ul>
               <ul class="text-blue-700 space-y-3">
                 <li class="flex items-start gap-2">
-                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 mr-2 flex-shrink-0" />
-                  <span class="leadind-relaxed"><strong>Quick Response:</strong> Same-day service across Delhi NCR</span>
+                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 flex-shrink-0" />
+                  <span class="leading-relaxed"><strong>Quick Response:</strong> Same-day service across Delhi NCR</span>
                 </li>
                 <li class="flex items-start gap-2">
-                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 mr-2 flex-shrink-0" />
-                  <span class="leadind-relaxed"><strong>All Brands:</strong> HP, Canon, Epson, Brother, Samsung, Xerox</span>
+                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 flex-shrink-0" />
+                  <span class="leading-relaxed"><strong>All Brands:</strong> HP, Canon, Epson, Brother, Samsung, Xerox</span>
                 </li>
                 <li class="flex items-start gap-2">
-                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 mr-2 flex-shrink-0" />
-                  <span class="leadind-relaxed"><strong>Warranty Support:</strong> Extended warranty and service guarantees</span>
+                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 flex-shrink-0" />
+                  <span class="leading-relaxed"><strong>Warranty Support:</strong> Extended warranty and service guarantees</span>
                 </li>
               </ul>
             </div>
