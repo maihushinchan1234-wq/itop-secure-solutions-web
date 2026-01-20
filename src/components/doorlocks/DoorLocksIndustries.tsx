@@ -1,6 +1,3 @@
-// File: DoorLocksIndustries.jsx or DoorLocksIndustries.tsx
-
-
 import React from 'react';
 import { Building, Home, GraduationCap, ShoppingBag, Factory, Heart } from 'lucide-react';
 import { usePageIndustries } from '@/hooks/useCMSContent';
@@ -17,8 +14,12 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 export const DoorLocksIndustries = () => {
   const { content } = usePageIndustries('doorlocks');
 
-  const getIcon = (iconName: string) => {
-    return iconMap[iconName] || Building;
+  // ✅ FIX 1: Ensure industries is always an array
+  const industries = Array.isArray(content) ? content : [];
+
+  // ✅ FIX 2: Resolve icon from string
+  const getIcon = (iconName?: string) => {
+    return iconMap[iconName || ''] || Building;
   };
 
   return (
@@ -34,20 +35,28 @@ export const DoorLocksIndustries = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {industries.map((industry, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow"
-            >
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                {industry.icon && <industry.icon className="h-8 w-8 text-blue-600" />}
+          {industries.map((industry, index) => {
+            const Icon = getIcon(industry.icon);
+
+            return (
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow"
+              >
+                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon className="h-8 w-8 text-blue-600" />
+                </div>
+
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                  {industry.title}
+                </h3>
+
+                <p className="text-gray-600">
+                  {industry.description}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                {industry.title}
-              </h3>
-              <p className="text-gray-600">{industry.description}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
