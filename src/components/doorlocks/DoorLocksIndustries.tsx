@@ -1,13 +1,25 @@
 // File: DoorLocksIndustries.jsx or DoorLocksIndustries.tsx
+
+
 import React from 'react';
-import { usePageTypes } from '@/hooks/useCMSContent';
+import { Building, Home, GraduationCap, ShoppingBag, Factory, Heart } from 'lucide-react';
+import { usePageIndustries } from '@/hooks/useCMSContent';
 
-// Export with the name DoorLocksIndustries to match your import
-export const DoorLocksIndustries = () => {
-  const { content } = usePageTypes('doorlocks');
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Building,
+  Home,
+  GraduationCap,
+  ShoppingBag,
+  Factory,
+  Heart,
+};
 
-  // Ensure content exists and is an array
-  const industries = content || [];
+export const PrinterIndustries = () => {
+  const { content } = usePageIndustries('doorlocks');
+
+  const getIcon = (iconName: string) => {
+    return iconMap[iconName] || Building;
+  };
 
   return (
     <section id="industries" className="py-16 bg-gray-50">
