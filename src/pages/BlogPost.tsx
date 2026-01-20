@@ -421,47 +421,38 @@ const BlogPost = () => {
 
             <div class="bg-yellow-50 p-6 rounded-lg mb-8 border border-yellow-200">
               <h3 class="text-xl font-semibold text-yellow-800 mb-4">📍 Strategic Fire Alarm Placement Guide:</h3>
-              <div class="grid md:grid-cols-2 gap-6">
+              <div class="grid md:grid-cols-2 gap-10">
+
+              <!-- LEFT COLUMN -->
                 <div>
-                  <h4 class="font-semibold text-yellow-800 mb-3">Essential Coverage Areas:</h4>
-                  <ul class="text-yellow-700 space-y-2">
-                    <li class="flex items-start">
-                      <CheckCircle class="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
-                      <span><strong>Kitchen Areas:</strong> Heat detectors preferred over smoke detectors to prevent cooking-related false alarms</span>
+                  <h4 class="font-semibold text-yellow-800 mb-4">Essential Coverage Areas:</h4>
+
+                  <ul class="text-yellow-700 space-y-3 leading-relaxed list-disc pl-5">
+                    <li>
+                      <strong>Kitchen Areas:</strong> Heat detectors preferred over smoke detectors
+                      to prevent cooking-related false alarms
                     </li>
-                    <li class="flex items-start">
-                      <CheckCircle class="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
-                      <span><strong>Living & Bedroom Areas:</strong> Photoelectric smoke detectors for early detection</span>
+                    <li>
+                      <strong>Living & Bedroom Areas:</strong> Photoelectric smoke detectors for early detection
                     </li>
-                    <li class="flex items-start">
-                      <CheckCircle class="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
-                      <span><strong>Hallways & Stairwells:</strong> Critical for evacuation route monitoring</span>
+                    <li>
+                      <strong>Hallways & Stairwells:</strong> Critical for evacuation route monitoring
                     </li>
-                    <li class="flex items-start">
-                      <CheckCircle class="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
-                      <span><strong>Electrical Panels:</strong> Specialized heat detection for electrical fire prevention</span>
+                    <li>
+                      <strong>Electrical Panels:</strong> Specialized heat detection for electrical fire prevention
                     </li>
                   </ul>
                 </div>
+
+                <!-- RIGHT COLUMN -->
                 <div>
-                  <h4 class="font-semibold text-yellow-800 mb-3">Professional Installation Standards:</h4>
-                  <ul class="text-yellow-700 space-y-2">
-                    <li class="flex items-start">
-                      <CheckCircle class="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
-                      <span>Ceiling-mounted for optimal smoke detection coverage</span>
-                    </li>
-                    <li class="flex items-start">
-                      <CheckCircle class="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
-                      <span>Minimum 3 feet from air vents and fans</span>
-                    </li>
-                    <li class="flex items-start">
-                      <CheckCircle class="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
-                      <span>Interconnected system for simultaneous alerts</span>
-                    </li>
-                    <li class="flex items-start">
-                      <CheckCircle class="h-4 w-4 text-yellow-600 mt-1 mr-2 flex-shrink-0" />
-                      <span>Battery backup for power outage protection</span>
-                    </li>
+                  <h4 class="font-semibold text-yellow-800 mb-4">Professional Installation Standards:</h4>
+
+                  <ul class="text-yellow-700 space-y-3 leading-relaxed list-disc pl-5">
+                    <li>Ceiling-mounted for optimal smoke detection coverage</li>
+                    <li>Minimum 3 feet from air vents and fans</li>
+                    <li>Interconnected system for simultaneous alerts</li>
+                    <li>Battery backup for power outage protection</li>
                   </ul>
                 </div>
               </div>
