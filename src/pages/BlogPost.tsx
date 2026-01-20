@@ -737,36 +737,26 @@ const BlogPost = () => {
 
           <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
             <h3 class="text-xl font-semibold text-blue-800 mb-4">🏆 Why Choose iTOP Services for Your Printer Needs?</h3>
-            <div class="grid md:grid-cols-2 gap-4 mb-4">
-              <ul class="text-blue-700 space-y-3">
-                <li class="flex items-start gap-2">
-                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 flex-shrink-0" />
-                  <span class="leading-relaxed"><strong>Expert Guidance:</strong> 8+ years helping customers choose the right printer</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 flex-shrink-0" />
-                  <span class="leading-relaxed"><strong>Best Prices:</strong> Competitive rates with genuine products</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 flex-shrink-0" />
-                  <span class="leading-relaxed"><strong>Complete Service:</strong> Sales, installation, repair, and AMC</span>
-                </li>
-              </ul>
-              <ul class="text-blue-700 space-y-3">
-                <li class="flex items-start gap-2">
-                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 flex-shrink-0" />
-                  <span class="leading-relaxed"><strong>Quick Response:</strong> Same-day service across Delhi NCR</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 flex-shrink-0" />
-                  <span class="leading-relaxed"><strong>All Brands:</strong> HP, Canon, Epson, Brother, Samsung, Xerox</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <CheckCircle class="h-4 w-4 text-blue-600 mt-1 flex-shrink-0" />
-                  <span class="leading-relaxed"><strong>Warranty Support:</strong> Extended warranty and service guarantees</span>
-                </li>
-              </ul>
-            </div>
+            <ul class="text-blue-700 space-y-2 leading-relaxed">
+              <li>
+                <strong>Expert Guidance:</strong> 8+ years helping customers choose the right printer
+    </li>
+    <li>
+      <strong>Best Prices:</strong> Competitive rates with genuine products
+    </li>
+    <li>
+      <strong>Complete Service:</strong> Sales, installation, repair, and AMC
+    </li>
+    <li>
+      <strong>Quick Response:</strong> Same-day service across Delhi NCR
+    </li>
+    <li>
+      <strong>All Brands:</strong> HP, Canon, Epson, Brother, Samsung, Xerox
+    </li>
+    <li>
+      <strong>Warranty Support:</strong> Extended warranty and service guarantees
+    </li>
+  </ul>
             
             <div class="bg-white p-4 rounded-lg border border-blue-200">
               <p class="text-blue-800 font-semibold mb-2">🚀 Ready to Find Your Perfect Printer?</p>
