@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Home, Building, School, Hotel, Factory, ShoppingBag } from 'lucide-react';
 
 import { usePageTypes } from '@/hooks/useCMSContent';
 
