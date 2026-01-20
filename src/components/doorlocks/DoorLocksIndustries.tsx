@@ -14,7 +14,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Heart,
 };
 
-export const PrinterIndustries = () => {
+export const DoorLocksIndustries = () => {
   const { content } = usePageIndustries('doorlocks');
 
   const getIcon = (iconName: string) => {
