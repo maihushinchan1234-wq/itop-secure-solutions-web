@@ -38,25 +38,25 @@ const BlogPost = () => {
           <div class="bg-green-50 p-6 rounded-lg border border-green-200">
             <h3 class="text-xl font-semibold text-green-800 mb-4">Key Benefits That Change Your Life:</h3>
             <div class="text-green-700 space-y-3 leading-relaxed">
-              <p>
+              <p class="block">
                 <strong class="text-green-800">Remote Access Control:</strong>
                 Lock or unlock your door from anywhere in the world using your smartphone.
                 Perfect for letting in family members, service providers, or guests when you're not home.
               </p>
 
-              <p>
+              <p class="block">
                 <strong class="text-green-800">Temporary Access Codes:</strong>
                 Create one-time or time-limited access codes for housekeepers, repair technicians,
                 Airbnb guests, or family members. Codes expire automatically for maximum security.
               </p>
 
-              <p>
+              <p class="block">
                 <strong class="text-green-800">Real-Time Security Alerts:</strong>
                 Receive instant notifications on your phone if someone attempts to tamper with the lock,
                 enters the wrong code multiple times, or if the door is left unlocked.
               </p>
 
-              <p>
+              <p class="block">
                 <strong class="text-green-800">Complete Activity Tracking:</strong>
                 Monitor who enters and exits your home with detailed logs showing timestamps.
                 Perfect for keeping track of children, elderly family members, or service providers.
