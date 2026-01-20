@@ -420,11 +420,11 @@ const BlogPost = () => {
             </div>
 
             <div class="bg-yellow-50 p-6 rounded-lg mb-8 border border-yellow-200">
-              <h3 class="text-xl font-semibold text-yellow-800 mb-4">📍 Strategic Fire Alarm Placement Guide:</h3>
+              <h3 class="text-xl font-semibold text-yellow-800 mb-6">📍 Strategic Fire Alarm Placement Guide:</h3>
               <div class="grid md:grid-cols-2 gap-10">
 
               <!-- LEFT COLUMN -->
-                <div>
+                <div class="min-w-0 break-normal whitespace-normal max-w-full">
                   <h4 class="font-semibold text-yellow-800 mb-4">Essential Coverage Areas:</h4>
 
                   <ul class="text-yellow-700 space-y-3 leading-relaxed list-disc pl-5">
@@ -445,7 +445,7 @@ const BlogPost = () => {
                 </div>
 
                 <!-- RIGHT COLUMN -->
-                <div>
+                <div class="min-w-0 break-normal whitespace-normal max-w-full">
                   <h4 class="font-semibold text-yellow-800 mb-4">Professional Installation Standards:</h4>
 
                   <ul class="text-yellow-700 space-y-3 leading-relaxed list-disc pl-5">
