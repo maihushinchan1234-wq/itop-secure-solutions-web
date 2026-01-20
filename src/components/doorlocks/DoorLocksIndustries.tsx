@@ -1,42 +1,48 @@
 import React from 'react';
-import { Building, Home, GraduationCap, ShoppingBag, Factory, Heart } from 'lucide-react';
+import {
+  Home,
+  Building,
+  School,
+  Hotel,
+  Factory,
+  ShoppingBag,
+} from 'lucide-react';
 import { usePageIndustries } from '@/hooks/useCMSContent';
 
+// ✅ Icon mapping (string → component)
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Building,
   Home,
-  GraduationCap,
-  ShoppingBag,
+  Building,
+  School,
+  Hotel,
   Factory,
-  Heart,
+  ShoppingBag,
 };
 
 export const DoorLocksIndustries = () => {
   const { content } = usePageIndustries('doorlocks');
 
-  // ✅ FIX 1: Ensure industries is always an array
-  const industries = Array.isArray(content) ? content : [];
-
-  // ✅ FIX 2: Resolve icon from string
-  const getIcon = (iconName?: string) => {
-    return iconMap[iconName || ''] || Building;
-  };
+  // ✅ Extract CMS industries safely
+  const industries = Array.isArray(content?.industries)
+    ? content.industries
+    : [];
 
   return (
     <section id="industries" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Industries We Serve
+            {content?.sectionTitle || 'Industries We Serve'}
           </h2>
           <p className="text-lg text-gray-600">
-            Customized lock solutions for every sector
+            {content?.sectionDescription ||
+              'Customized lock solutions for every sector'}
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {industries.map((industry, index) => {
-            const Icon = getIcon(industry.icon);
+            const Icon = iconMap[industry.icon] || Building;
 
             return (
               <div
