@@ -1,10 +1,11 @@
-
 import React from 'react';
-
 import { usePageTypes } from '@/hooks/useCMSContent';
 
 export const DoorLocksTypes = () => {
   const { content } = usePageTypes('doorlocks');
+
+  // Make sure content exists and is an array
+  const industries = content || [];
 
   return (
     <section id="industries" className="py-16 bg-gray-50">
@@ -22,7 +23,7 @@ export const DoorLocksTypes = () => {
           {industries.map((industry, index) => (
             <div key={index} className="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <industry.icon className="h-8 w-8 text-blue-600" />
+                {industry.icon && <industry.icon className="h-8 w-8 text-blue-600" />}
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-3">
                 {industry.title}
