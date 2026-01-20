@@ -177,28 +177,28 @@ const BlogPost = () => {
             <div class="grid md:grid-cols-2 gap-6 mb-8">
               <div class="bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
                 <h4 class="font-semibold text-purple-600 mb-3 flex items-center">
-                  <CheckCircle class="h-5 w-5 mr-2" />
+                  <CheckCircle class="h-5 w-5" />
                   High Resolution (HD/4K)
                 </h4>
                 <p class="text-gray-600 text-sm">Crystal-clear footage essential for identifying faces, reading license plates, and providing evidence to authorities. 4K cameras capture details that could make or break a case.</p>
               </div>
               <div class="bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
                 <h4 class="font-semibold text-purple-600 mb-3 flex items-center">
-                  <CheckCircle class="h-5 w-5 mr-2" />
+                  <CheckCircle class="h-5 w-5" />
                   Night Vision Technology
                 </h4>
                 <p class="text-gray-600 text-sm">Advanced IR LEDs provide clear visibility even in complete darkness. Essential for 24/7 monitoring and capturing incidents that often occur after business hours.</p>
               </div>
               <div class="bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
                 <h4 class="font-semibold text-purple-600 mb-3 flex items-center">
-                  <CheckCircle class="h-5 w-5 mr-2" />
+                  <CheckCircle class="h-5 w-5" />
                   Smart Motion Detection
                 </h4>
                 <p class="text-gray-600 text-sm">AI-powered alerts distinguish between regular activity and potential threats. Reduces false alarms while ensuring you never miss important events.</p>
               </div>
               <div class="bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
                 <h4 class="font-semibold text-purple-600 mb-3 flex items-center">
-                  <CheckCircle class="h-5 w-5 mr-2" />
+                  <CheckCircle class="h-5 w-5" />
                   Remote Mobile Access
                 </h4>
                 <p class="text-gray-600 text-sm">Monitor your business from anywhere using smartphone apps. Check in during vacations, verify employee attendance, or respond to security alerts instantly.</p>
