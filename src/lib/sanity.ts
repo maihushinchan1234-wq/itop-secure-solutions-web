@@ -6,7 +6,7 @@ export const sanityClient = createClient({
   projectId: 'idz300r2',
   dataset: 'production',
   apiVersion: '2024-01-01',
-  useCdn: true, // Use CDN for faster reads
+  useCdn: false, // Disable CDN to always get latest published content
 });
 
 // GROQ queries for different content types
