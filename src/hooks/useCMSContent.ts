@@ -359,9 +359,9 @@ export function useContactContent() {
     title: "Contact iTOP Services",
     subtitle: "🚀 Get Expert Help Now",
     description: "Ready to transform your tech experience? Our certified experts are standing by to provide immediate assistance, professional consultations, and comprehensive solutions tailored to your needs.",
-    phones: ["+91 9849655559", "+91 9990820830"],
+    phones: ["+91 9990820830"],
     email: "sachidanand@live.in",
-    whatsappNumber: "919849655559",
+    whatsappNumber: "919990820830",
     address: {
       line1: "224, B1, DDA Flats",
       line2: "Loknayak Puram",
